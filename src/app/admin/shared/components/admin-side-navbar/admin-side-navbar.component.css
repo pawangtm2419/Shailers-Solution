@@ -1,0 +1,18 @@
+.open{
+    display: block;
+}
+
+.close{
+    display: none;
+    transition-duration: 5s;
+}
+
+.sidebar-scroll{
+    overflow-y:scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
+}
+
+.sidebar-scroll::-webkit-scrollbar {
+    display: none;
+}

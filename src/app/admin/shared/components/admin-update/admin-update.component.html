@@ -1,0 +1,254 @@
+<div class="main">
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="container-fluid">
+            <h3 class="page-title">Edit Profile</h3>
+                            <div id="toastr-demo" class="panel">
+                <div class="panel-body">
+                    <!-- Start Form -->
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10">
+                                <div>
+                                    <form method="post">
+                                        <ng-container *ngFor="let data of adminData">
+                                            <div class="row">
+                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                    <label>User Name</label>
+                                                </div>
+                                                <div class="col-md-3  col-sm-12 col-xs-12 form-group">
+                                                    <input type="text" name="usernamee" value="{{data.username}}" class="form-control" readonly>
+                                                </div>
+                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                    <label>Name</label>
+                                                </div>
+                                                <div class="col-md-3  col-sm-12 col-xs-12 form-group">
+                                                    <input type="text" name="name" value="{{data.name}}" class="form-control" autocomplete="off">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                    <label>Mobile Number</label>
+                                                </div>
+                                                <div class="col-md-3  col-sm-12 col-xs-12 form-group">
+                                                    <input type="text" name="mobile" value="{{data.mobile}}" class="form-control" minlength="10" maxlength="10" autocomplete="off">
+                                                </div>
+                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                    <label>Alternate Mobile Number</label>
+                                                </div>
+                                                <div class="col-md-3  col-sm-12 col-xs-12 form-group">
+                                                    <input type="text" name="alt_mobile" value="{{data.alt_mobile}}" class="form-control" minlength="10" maxlength="10" autocomplete="off">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                    <label>Email Id 1</label>
+                                                </div>
+                                                <div class="col-md-3  col-sm-12 col-xs-12 form-group">
+                                                    <input type="email" name="email1" value="{{data.email_1}}" class="form-control" autocomplete="off">
+                                                </div>
+                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                    <label>Email Id 2</label>
+                                                </div>
+                                                <div class="col-md-3  col-sm-12 col-xs-12 form-group">
+                                                    <input type="email" name="email2" value="{{data.email_2}}" class="form-control" autocomplete="off">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                    <label>Email Id 3</label>
+                                                </div>
+                                                <div class="col-md-3  col-sm-12 col-xs-12 form-group">
+                                                    <input type="email" name="email3" value="{{data.email_3}}" class="form-control" autocomplete="off">
+                                                </div>
+                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                    <label>Email Id 4</label>
+                                                </div>
+                                                <div class="col-md-3  col-sm-12 col-xs-12 form-group">
+                                                    <input type="email" name="email4" value="{{data.email_4}}" class="form-control" autocomplete="off">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                    <label>DOB</label>
+                                                </div>
+                                                <div class="col-md-3  col-sm-12 col-xs-12 form-group">
+                                                    <input type="text" name="dob" value="{{data.dob}}" id="datepicker" placeholder="mm/dd/yy" class="form-control" autocomplete="off">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                    <label>Company Name</label>
+                                                </div>
+                                                <div class="col-md-3  col-sm-12 col-xs-12 form-group">
+                                                    <input type="text" name="comp_name" value="{{data.comp_name}}" class="form-control" autocomplete="off">
+                                                </div>
+                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                    <label>Company URL</label>
+                                                </div>
+                                                <div class="col-md-3  col-sm-12 col-xs-12 form-group">
+                                                    <input type="text" name="comp_url" value="{{data.comp_url}}" class="form-control" autocomplete="off">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                    <label>Company Logo</label>
+                                                </div>
+                                                <div class="col-md-3  col-sm-12 col-xs-12 form-group">
+                                                    <input type="file" name="comp_logo">
+                                                </div>
+                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                    <label>Company Stamp</label>
+                                                </div>
+                                                <div class="col-md-3  col-sm-12 col-xs-12 form-group">
+                                                    <input type="file" name="comp_stamp">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                                    <label>Registered Office Address :-</label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                    <select class="form-control" name="reg_state" id="state">
+                                                        <option value=""></option>
+                                                        <option value="1">Andaman and Nicobar Islands</option>
+                                                        <option value="2">Andhra Pradesh</option>
+                                                        <option value="3">Arunachal Pradesh</option>
+                                                        <option value="4">Assam</option>
+                                                        <option value="5">Bihar</option>
+                                                        <option value="6">Chandigarh</option>
+                                                        <option value="7">Chhattisgarh</option>
+                                                        <option value="8">Dadra and Nagar Haveli</option>
+                                                        <option value="9">Daman and Diu</option>
+                                                        <option value="10">Delhi</option>
+                                                        <option value="11">Goa</option>
+                                                        <option value="12">Gujarat</option>
+                                                        <option value="13">Haryana</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-3  col-sm-12 col-xs-12 form-group">
+                                                    <select class="form-control" name="reg_city" id="city">
+                                                        <option value=""></option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                    <input type="text" name="reg_building" value="B-296, Ashok Nagar, Shahdhara" placeholder="Building" class="form-control" autocomplete="off">
+                                                </div>
+                                                <div class="col-md-3  col-sm-12 col-xs-12 form-group">
+                                                    <input type="text" name="reg_pincode" value="110093" placeholder="Pincode" class="form-control" minlength="6" maxlength="6" autocomplete="off">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                                    <label>Corporate Office Address :-</label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                    <select class="form-control" name="cor_state" id="state1" >
+                                                        <option value=""></option>
+                                                        <option value="1">Andaman and Nicobar Islands</option>
+                                                        <option value="2">Andhra Pradesh</option>
+                                                        <option value="3">Arunachal Pradesh</option>
+                                                        <option value="4">Assam</option>
+                                                        <option value="5">Bihar</option>
+                                                        <option value="6">Chandigarh</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-3  col-sm-12 col-xs-12 form-group">
+                                                    <select class="form-control" name="cor_city" id="city1">
+                                                        <option value=""></option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                    <input type="text" name="cor_building" value="{{data.cor_building}}" placeholder="Building" class="form-control" autocomplete="off">
+                                                </div>
+                                                <div class="col-md-3  col-sm-12 col-xs-12 form-group">
+                                                    <input type="text" name="cor_pincode" value="{{data.cor_pincode}}" placeholder="Pincode" class="form-control" minlength="6" maxlength="6" autocomplete="off">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                    <label>GSTIN</label>
+                                                </div>
+                                                <div class="col-md-3  col-sm-12 col-xs-12 form-group">
+                                                    <input type="text" name="gstin" value="{{data.gstin}}" class="form-control" autocomplete="off">
+                                                </div>
+                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                    <label>PAN No</label>
+                                                </div>
+                                                <div class="col-md-3  col-sm-12 col-xs-12 form-group">
+                                                    <input type="text" name="pan_no" value="{{data.pan_no}}" class="form-control" autocomplete="off">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                                    <label>Bank Account Details :-</label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                    <label>Account Holder Name</label>
+                                                </div>
+                                                <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                                                    <input type="text" name="acc_holder_1" value="{{data.acc_holder_1}}" placeholder="Account Holder Name" class="form-control" autocomplete="off">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                    <input type="text" name="bank_name_1" value="{{data.bank_name_1}}" placeholder="Bank Name" class="form-control" autocomplete="off">
+                                                </div>
+                                                <div class="col-md-3  col-sm-12 col-xs-12 form-group">
+                                                    <input type="text" name="account_number_1" value="{{data.account_number_1}}" placeholder="Account Number" class="form-control" minlength="26" maxlength="26" autocomplete="off">
+                                                </div>
+                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                    <input type="text" name="ifsc_code_1" value="{{data.ifsc_code_1}}" placeholder="IFSC Code" class="form-control" autocomplete="off">
+                                                </div>
+                                                <div class="col-md-3  col-sm-12 col-xs-12 form-group">
+                                                    <input type="text" name="micr_code_1" value="{{data.micr_code_1}}" placeholder="MICR Code" class="form-control" minlength="26" maxlength="26" autocomplete="off">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                    <label>Account Holder Name</label>
+                                                </div>
+                                                <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                                                    <input type="text" name="acc_holder_2" value="" placeholder="Account Holder Name" class="form-control" autocomplete="off">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                    <input type="text" name="bank_name_2" value="" placeholder="Other Bank Name" class="form-control" autocomplete="off">
+                                                </div>
+                                                <div class="col-md-3  col-sm-12 col-xs-12 form-group">
+                                                    <input type="text" name="account_number_2" value="" placeholder="Other Account Number" class="form-control" minlength="15" maxlength="15" autocomplete="off">
+                                                </div>
+                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                    <input type="text" name="ifsc_code_2" value="" placeholder="Other IFSC Code" class="form-control" autocomplete="off">
+                                                </div>
+                                                <div class="col-md-3  col-sm-12 col-xs-12 form-group">
+                                                    <input type="text" name="micr_code_2" value="" placeholder="Other MICR Code" class="form-control" minlength="15" maxlength="15" autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </ng-container>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                                                <input type="submit" value="Update" name="update" class="btn btn-submit">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                    <!-- End Form -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT -->
+</div>

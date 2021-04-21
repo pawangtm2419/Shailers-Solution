@@ -1,0 +1,246 @@
+<div class="main">
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="container-fluid">
+            <h3 class="page-title">Next Lead</h3>
+            <div id="toastr-demo" class="panel">
+                <div class="panel-body">
+                    <!-- Start Form -->
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10">
+                                <div>
+                                    <form [formGroup]="nextLeadForm">
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>Customer Name</label>
+                                            </div>
+                                            <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                                                <input type="text" value="LEAD21528" name="cus_id" hidden>
+                                                <input type="text" formControlName="cus_name" value="Demo" class="form-control"
+                                                    readonly>
+                                                   
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>Mobile Number</label>
+                                            </div>
+                                            <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                                                <input type="text" formControlName="mobile" value="" class="form-control"
+                                                    id="mobile" readonly>
+                                                  
+                                            </div>
+                                            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 "><span id="errmsg"
+                                                    style="color:red"></span></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>Category</label>
+                                            </div>
+                                            <div class="col-md-5  col-sm-12 col-xs-12 form-group">
+                                                <input type="text" formControlName="category" value="11" class="form-control" readonly>
+                                               
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>Last Feedback</label>
+                                            </div>
+                                            <div class="col-md-5  col-sm-12 col-xs-12 form-group">
+                                                <input type="text" formControlName="lead_feedback" value="" class="form-control" readonly>
+                                               
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>Lead Feedback</label>
+                                            </div>
+                                            <div class="col-md-5  col-sm-12 col-xs-12 form-group">
+                                                <select formControlName="lead_feedback" class="form-control"
+                                                     required>
+                                                    <option value="">--Select--</option>
+                                                    <option value="I have spoken to the customer">I have spoken to the
+                                                        customer.</option>
+                                                    <option value="I was ask to call later">I was ask to call later.
+                                                    </option>
+                                                    <option value="Client is interested">Client is interested.</option>
+                                                    <option value="In progress">In progress.</option>
+                                                    <option value="Canceled by client">Canceled by client.</option>
+                                                    <option value="I have converted the lead">I have converted the lead.
+                                                    </option>
+                                                </select>
+                                                <label *ngIf="submitted && f.lead_feedback.errors" class="invalid-form-error">
+                                                    <span *ngIf="f.lead_feedback.errors.required">Lead feedback is required</span>
+                                                </label>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div id="hide">
+                                            <div class="row">
+                                                <div class="col-lg-2 col-md-2"></div>
+                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                    <label>Reminder Date</label>
+                                                </div>
+                                                <div class="col-md-5  col-sm-12 col-xs-12 form-group">
+                                                    <input type="text" formControlName="remind_date" bsDatepicker
+                                                        [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }"
+                                                        class="form-control" id="datepicker" placeholder="dd-mm-yy"
+                                                        autocomplete="off">
+                                                        <label *ngIf="submitted && f.remind_date.errors" class="invalid-form-error">
+                                                            <span *ngIf="f.remind_date.errors.required">Reminder Date is required</span>
+                                                        </label>
+                                                </div>
+                                                <div class="col-lg-2 col-md-2"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-2 col-md-2"></div>
+                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                    <label>Comment</label>
+                                                </div>
+                                                <div class="col-md-5  col-sm-12 col-xs-12 form-group">
+                                                    <textarea formControlName="comment" rows="4" class="form-control"></textarea>
+                                                    <label *ngIf="submitted && f.comment.errors" class="invalid-form-error">
+                                                        <span *ngIf="f.comment.errors.required">Comment is required</span>
+                                                    </label>
+                                                </div>
+                                                <div class="col-lg-2 col-md-2"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                                                    <input type="submit" value="Submit" (click)="updateLead()" name="sub"
+                                                        class="btn btn-submit">
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                                                    <a [routerLink]="['/shailerscrm/admin/manage/lead']"   class="btn btn-submit">Close</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="con-lead" style="display:none">
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12 text-center form-group">
+                                                    <h3>Add as a Client</h3>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-2 col-sm-6 col-xs-12 form-group">
+                                                    <label>Alternate Mobile</label>
+                                                </div>
+                                                <div class="col-md-4  col-sm-6 col-xs-12 form-group">
+                                                    <input type="text" name="alt_mob" minlength=10 maxlength=10
+                                                        class="form-control" autocomplete="off">
+                                                </div>
+                                                <div class="col-md-2 col-sm-6 col-xs-12 form-group">
+                                                    <label>Email</label>
+                                                </div>
+                                                <div class="col-md-4  col-sm-6 col-xs-12 form-group">
+                                                    <input type="email" name="email" class="form-control"
+                                                        autocomplete="off">
+                                                </div>
+                                            </div>
+                                            <!-- <div class="row">
+                                                <div class="col-md-2 col-sm-6 col-xs-12 form-group">
+                                                    <label>State</label>
+                                                </div>
+                                                <div class="col-md-4  col-sm-6 col-xs-12 form-group">
+                                                    <select class="form-control" name="state" id="state"
+                                                        onchange="get_city()">
+                                                        <option value="">--Select--</option>
+                                                        <option value="1">Andaman and Nicobar Islands</option>
+                                                        <option value="2">Andhra Pradesh</option>
+                                                        <option value="3">Arunachal Pradesh</option>
+                                                        <option value="4">Assam</option>
+                                                        <option value="5">Bihar</option>
+                                                        <option value="6">Chandigarh</option>
+                                                        <option value="7">Chhattisgarh</option>
+                                                        <option value="8">Dadra and Nagar Haveli</option>
+                                                        <option value="9">Daman and Diu</option>
+                                                        <option value="10">Delhi</option>
+                                                        <option value="11">Goa</option>
+                                                        <option value="12">Gujarat</option>
+                                                        <option value="13">Haryana</option>
+                                                        <option value="14">Himachal Pradesh</option>
+                                                        <option value="15">Jammu and Kashmir</option>
+                                                        <option value="16">Jharkhand</option>
+                                                        <option value="17">Karnataka</option>
+                                                        <option value="18">Kenmore</option>
+                                                        <option value="19">Kerala</option>
+                                                        <option value="20">Lakshadweep</option>
+                                                        <option value="21">Madhya Pradesh</option>
+                                                        <option value="22">Maharashtra</option>
+                                                        <option value="23">Manipur</option>
+                                                        <option value="24">Meghalaya</option>
+                                                        <option value="25">Mizoram</option>
+                                                        <option value="26">Nagaland</option>
+                                                        <option value="27">Narora</option>
+                                                        <option value="28">Natwar</option>
+                                                        <option value="29">Odisha</option>
+                                                        <option value="30">Paschim Medinipur</option>
+                                                        <option value="31">Pondicherry</option>
+                                                        <option value="32">Punjab</option>
+                                                        <option value="33">Rajasthan</option>
+                                                        <option value="34">Sikkim</option>
+                                                        <option value="35">Tamil Nadu</option>
+                                                        <option value="36">Telangana</option>
+                                                        <option value="37">Tripura</option>
+                                                        <option value="38">Uttar Pradesh</option>
+                                                        <option value="39">Uttarakhand</option>
+                                                        <option value="40">Vaishali</option>
+                                                        <option value="41">West Bengal</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-2 col-sm-6 col-xs-12 form-group">
+                                                    <label>City</label>
+                                                </div>
+                                                <div class="col-md-4  col-sm-6 col-xs-12 form-group">
+                                                    <select class="form-control" name="city" id="city">
+                                                        <option value="">--Select--</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-2 col-sm-6 col-xs-12 form-group">
+                                                    <label>Building</label>
+                                                </div>
+                                                <div class="col-md-4  col-sm-6 col-xs-12 form-group">
+                                                    <input type="text" name="building" class="form-control"
+                                                        autocomplete="off">
+                                                </div>
+                                                <div class="col-md-2 col-sm-6 col-xs-12 form-group">
+                                                    <label>Pin Code</label>
+                                                </div>
+                                                <div class="col-md-4  col-sm-6 col-xs-12 form-group">
+                                                    <input type="text" name="pincode" minlength=6 maxlength=6
+                                                        class="form-control" autocomplete="off">
+                                                </div>
+                                            </div> -->
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                                                    <input type="submit"  value="Add" name="add_new"
+                                                        class="btn btn-submit">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="status" id="status" value="">
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                    <!-- End Form -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT -->
+</div>

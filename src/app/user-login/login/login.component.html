@@ -1,0 +1,75 @@
+<div id="wrapper">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="alert alert-danger" [hidden]="!error">
+                {{error}}
+            </div>
+            <div class="alert alert-success" [hidden]="!msg">
+                {{msg}}
+            </div>
+        </div>
+    </div>
+    <div class="vertical-align-wrap">
+        <div class="vertical-align-middle">
+            <div class="auth-box ">
+                <div class="text-center">
+                    <div class="content">
+                        <div class="header text-center">
+                            <img src="assets/img/logo-dark.png" class="img-responsive" style="margin: 0 auto;">
+                        </div>
+
+                        <div id="hide">
+                            <ng-container *ngIf="formName == 'login'">
+                                <form [formGroup]="loginForm" #loginFormHide>
+                                    <div>
+                                        <div class="form-group search">
+                                            <label class="control-label">Username </label>
+                                            <input type="text" title="Please enter you username"
+                                                formControlName="emp_email" class="form-control" autocomplete="off">
+                                            <label *ngIf="submitted && f.emp_email.errors" class="invalid-form-error">
+                                                <span *ngIf="f.emp_email.errors.required">Username is required</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label" for="password">Password</label>
+                                            <input type="password" title="Please enter your password"
+                                                formControlName="pass" class="form-control">
+                                            <label *ngIf="submitted && f.pass.errors" class="invalid-form-error">
+                                                <span *ngIf="f.pass.errors.required">Password is required</span>
+                                            </label>
+                                            <p style="cursor:pointer;margin-right: 142px;"><a
+                                                    (click)="toggelForm('forget')">Forgot Password ?</a></p>
+                                        </div>
+                                        <input type="submit" name="login" value="Login" (click)=" login()"
+                                            class="btn btn-block loginbtn">
+                                    </div>
+                                </form>
+                            </ng-container>
+                        </div>
+                        <ng-container *ngIf="formName == 'forget'">
+                            <form [formGroup]="forgetForm" style="text-align: left;">
+                                <div>
+                                    <div class="form-group search">
+                                        <label class="control-label">Email ID</label>
+                                        <input type="text" formControlName="emp_email" title="Please enter you Email ID"
+                                            class="form-control" autocomplete="off">
+                                        <label *ngIf="submitted && forget.emp_email.errors" class="invalid-form-error">
+                                            <span *ngIf="forget.emp_email.errors.required">Username is required</span>
+                                        </label>
+                                    </div>
+                                    <input type="submit" name="otp" value="Get OTP" (click)="forget_password()"
+                                        class="btn btn-block loginbtn">
+                                    <a [routerLink]="['/shailerscrm/change-forgot-password']"
+                                        class="btn btn-block loginbtn">Change Forgot Password</a>
+                                    <a [routerLink]="['/shailerscrm/login']" class="btn btn-block loginbtn"
+                                        (click)="toggelForm('login')">Go Back</a>
+                                </div>
+                            </form>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

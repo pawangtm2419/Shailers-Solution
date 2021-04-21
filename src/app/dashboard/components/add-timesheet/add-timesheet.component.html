@@ -1,0 +1,203 @@
+<div class="main">
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="container-fluid">
+            <h3 class="page-title">Add Timesheet</h3>
+
+            <!-- <div class="alert alert-danger alert-dismissible fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>Error!</strong>
+                        </div>
+                   
+                        <div class="alert alert-success alert-dismissible fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>Success!</strong>
+                        </div> -->
+                        <!-- <div class="modal-header">
+                            <h4 class="modal-title">Hi there!</h4>
+                            <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <p>Hello,</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+                          </div> -->
+
+            <div id="toastr-demo" class="panel">
+                <div class="panel-body">
+                    <!-- Start Form -->
+                    <div class="container-fluid">
+                        <div class="row">
+                            <form [formGroup]="timeSheetForm">
+                                <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+                                    <label>Project Name</label>
+                                    <select name="pro_name" class="form-control" formControlName="pro_name" id="project"
+                                        required>
+                                        <option value="">--Select--</option>
+                                        <ng-container *ngFor="let list of totalProjectData">
+                                            <option value="{{list.pro_name}}">{{list.pro_name}}</option>
+                                        </ng-container>
+                                        <label *ngIf="submitted && f.pro_name.errors" class="invalid-form-error">
+                                            <span *ngIf="f.pro_name.errors.required">Project Name is required</span>
+                                        </label>
+                                    </select>
+
+                                </div>
+
+                                <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+
+                                    <label>Activity</label>
+                                    <select name="activity" class="form-control" formControlName="activity" required
+                                        id="activityy">
+                                        <option value="">--Select--</option>
+                                        <option value="Coading">Coading</option>
+                                        <option value="Testing">Testing</option>
+                                        <option value="Support">Support</option>
+                                    </select>
+                                    <label *ngIf="submitted && f.activity.errors" class="invalid-form-error">
+                                        <span *ngIf="f.activity.errors.required">Activity is required</span>
+                                    </label>
+                                </div>
+                                <!-- <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+                                    <label>Start Time</label>
+                                    <input type="time" [(ngModel)]="inputText" formControlName="strt_time" (click)="openStartTimeTable()" value="" name="strt_time"  autocomplete="off"
+                                    class="form-control">
+                                    <label *ngIf="submitted && f.strt_time.errors" class="invalid-form-error">
+                                        <span *ngIf="f.strt_time.errors.required" >Start time is required</span>
+                                    </label>
+                                </div> -->
+                                <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+                                    <label>Start Time</label>
+                                    <input type="time" (change)="onTimeChange()" [(ngModel)]="inputInTime" formControlName="strt_time" value=""
+                                        name="end_time" autocomplete="off" class="form-control">
+                                    <label *ngIf="submitted && f.end_time.errors" class="invalid-form-error">
+                                        <span *ngIf="f.end_time.errors.required">Start time is required</span>
+                                    </label>
+                                </div>
+
+                                <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+                                    <label>End Time</label>
+                                    <input type="time" (change)="onTimeChange()" [(ngModel)]="inputOutTime" formControlName="end_time" value=""
+                                        name="end_time" autocomplete="off" class="form-control">
+                                    <label *ngIf="submitted && f.end_time.errors" class="invalid-form-error">
+                                        <span *ngIf="f.end_time.errors.required">End time is required</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+                                    <label>HH:MM</label>
+                                    <input type="text" value="{{totalWorkingTime}}" id="diff" name="diff" readonly class="form-control">
+                                </div>
+                                <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+                                    <label>Status</label>
+                                    <select name="status" class="form-control" formControlName="status" required>
+                                        <option value="">--Select--</option>
+                                        <option value="Pending">Pending</option>
+                                        <option value="In Process">In Process</option>
+                                        <option value="Complete">Complete</option>
+                                    </select>
+                                    <label *ngIf="submitted && f.status.errors" class="invalid-form-error">
+                                        <span *ngIf="f.status.errors.required">Status is required</span>
+                                    </label>
+                                </div>
+                                
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group description">
+                                    <label>Description</label>
+                                    <textarea rows="4" formControlName="descp" value="" name="desc"
+                                        class="form-control"></textarea>
+                                    <label *ngIf="submitted && f.descp.errors" class="invalid-form-error">
+                                        <span *ngIf="f.descp.errors.required">Description is required</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-2 col-sm-12 col-xs-12 text-center form-group">
+                                        <ng-container *ngIf="formName == 'addForm'">
+                                            <input type="submit" name="sub" value="Add"
+                                            (click)="addTimeSheetForm()" class="btn btn-submit"
+                                            style="margin:40px">
+                                        </ng-container>
+                                        <ng-container  *ngIf="formName == 'update'">
+                                            <input type="submit" name="up" value="Update" class="btn btn-submit"
+                                            style="margin-top:25px">
+                                       
+                                            <a  [routerLink]="['/shailerscrm/index/addtimesheet']"   class="btn btn-submit"
+                                            style="margin-top:25px">Close</a>
+                                       
+                                        </ng-container>
+                                   
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- End Form -->
+                </div>
+
+                <!-- open table when we will click Add input button start -->
+                <ng-container *ngIf="addTimeSheetData.length > 0">
+                    <div class="panel-body">
+                        <!-- Start Form -->
+                        <div class="container-fluid">
+                            <div class="row">
+                                <!-- <div class="col-md-1"></div> -->
+                                <div class="col-md-12">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover table-stripped table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Project Name</th>
+                                                    <th>Activity</th>
+                                                    <th>Start Time</th>
+                                                    <th>End Time</th>
+                                                    <th>HH:MM</th>
+                                                    <th>Status</th>
+                                                    <th>Description</th>
+                                                    <th>Edit</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <ng-container *ngFor="let data of addTimeSheetData">
+                                                    <tr>
+                                                        <td>{{data.pro_name}}</td>
+                                                        <td>{{data.activity}}</td>
+                                                        <td>{{data.strt_time}}</td>
+                                                        <td>{{data.end_time}}</td>
+                                                        <td>{{data.hours}}</td>
+                                                        <td>{{data.status}}</td>
+                                                        <td>{{data.descp}}</td>
+                                                        <td><a class="btn btn-edit" (click)="updateForm('update')">
+                                                            <i class="fa fa-pencil"></i>
+                                                            Edit
+                                                        </a></td>
+                                                       
+                                                    </tr>
+                                                </ng-container>
+                                               
+                         
+                                                <tr >
+                                                    <td align="center" colspan="8">
+                                                       
+                                                        <!-- <button type="button"  class="btn btn-submit" (click)=" openDialog()" data-toggle="modal">Submit</button> -->
+                                                        <button type="button"  class="btn btn-submit" (click)="openDialog()" data-toggle="modal">Submit</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- End Form -->
+                    </div>
+                </ng-container>
+
+                <!-- open table when we will click Add input button end -->
+            </div>
+           
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,200 @@
+<!-- WRAPPER -->
+<div id="wrapper">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="brand">
+            <a href="index.php"><img src="assets/img/logo-dark.png" alt="Shailers Logo" class="img-responsive logo"></a>
+        </div>
+        <div class="container-fluid">
+            <div class="navbar-btn">
+                <button type="button" class="btn-toggle-fullwidth">
+                    <i class="fa fa-bars" (click)="openSideNav()" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div id="navbar-menu">
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+                            <span>Admin</span>
+                            <i class="icon-submenu lnr lnr-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" [routerLink]="['/shailerscrm/admin/update/profile']"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
+                            <li><a  [routerLink]="['/shailerscrm/change-password']"> <i class="lnr lnr-cog"></i> <span>Change Password</span></a></li>
+                            <li><a href="#" (click)="logOut()"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- END NAVBAR -->
+    <!-- LEFT SIDEBAR -->
+    <div id="sidebar-nav" class="sidebar open sidebar-scroll" #sideNavBar>
+        <div >
+            <nav>
+                <ul class="nav" >
+                    <li>
+                        <a href="#" [routerLink]="['/shailerscrm/admin/dashboard']">
+                            <i class="lnr lnr-home"></i> <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#subPages1" data-toggle="collapse" class="collapsed"><i class="fa fa-users"></i>
+                            <span>Empolyee Management</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                        <div id="subPages1" class="collapse ">
+                            <ul class="nav">
+                                <li>
+                                    <a href="#" [routerLink]="['/shailerscrm/admin/attendence/list']">Attendence List</a>
+                                    <a href="#"  [routerLink]="['/shailerscrm/admin/timesheet/records']">Timesheet Records</a>
+                                    <a href="#"  [routerLink]="['/shailerscrm/admin/timesheet']">Empolyees Timesheet</a>
+                                    <a href="#" [routerLink]="['/shailerscrm/admin/employee/records']">Manage Empolyees</a>
+                                    <a href="#" [routerLink]="['/shailerscrm/admin/employee/access']">Give Access</a>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#subPages2" data-toggle="collapse" class="collapsed"><i class="fa fa-file-code-o"></i>
+                            <span>Project Management</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                        <div id="subPages2" class="collapse ">
+                            <ul class="nav">
+                                <li>
+                                    <a href="#" [routerLink]="['/shailerscrm/admin/manage/project']">Manage Project</a>
+                                    <a href="#"  [routerLink]="['/shailerscrm/admin/assign/project']">Assign Project</a>
+                                    
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#subPages3" data-toggle="collapse" class="collapsed"><i
+                                class="fa fa-pencil-square-o"></i> <span>Activity Management</span> <i
+                                class="icon-submenu lnr lnr-chevron-left"></i></a>
+                        <div id="subPages3" class="collapse ">
+                            <ul class="nav">
+                                <li>
+                                    <a href="#" [routerLink]="['/shailerscrm/admin/manage/activity']">Manage Activity</a>
+                                    <a href="#" [routerLink]="['/shailerscrm/admin/assign/activity']">Assign Activity</a>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#subPages4" data-toggle="collapse" class="collapsed"><i
+                                class="fa fa-pencil-square-o"></i> <span>Invoice Management</span> <i
+                                class="icon-submenu lnr lnr-chevron-left"></i></a>
+                        <div id="subPages4" class="collapse ">
+                            <ul class="nav">
+                                <li>
+                                    <a href="#" [routerLink]="['/shailerscrm/admin/new/invoice']" >New Invoice</a>
+                                    <a href="#" [routerLink]="['/shailerscrm/admin/old/invoice']">Old Invoice</a>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#subPages5" data-toggle="collapse" class="collapsed"><i
+                            class="fa fa-inr"></i> <span>Expense Management</span> <i
+                                class="icon-submenu lnr lnr-chevron-left"></i></a>
+                        <div id="subPages5" class="collapse ">
+                            <ul class="nav">
+                                <li>
+                                    <a href="#" [routerLink]="['/shailerscrm/admin/manage/expense']">Manage Expense</a>
+                                    <a href="#"[routerLink]="['/shailerscrm/admin/entry/expense']">Expense Entry</a>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#subPages6" data-toggle="collapse" class="collapsed"><i
+                            class="fa fa-user-circle"></i> <span>Client Management</span> <i
+                                class="icon-submenu lnr lnr-chevron-left"></i></a>
+                        <div id="subPages6" class="collapse ">
+                            <ul class="nav">
+                                <li>
+                                    <a href="#" [routerLink]="['/shailerscrm/admin/manage/client']">Manage Client</a>
+                                 
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#subPages7" data-toggle="collapse" class="collapsed"><i
+                            class="fa fa-handshake-o"></i> <span>Lead Management</span> <i
+                                class="icon-submenu lnr lnr-chevron-left"></i></a>
+                        <div id="subPages7" class="collapse ">
+                            <ul class="nav">
+                                <li>
+                                    <a href="#" [routerLink]="['/shailerscrm/admin/lead/category']">Lead category</a>
+                                    <a href="#" [routerLink]="['/shailerscrm/admin/manage/lead']">Manage Lead</a>
+                                 
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#subPages8" data-toggle="collapse" class="collapsed"><i
+                            class="fa fa-thermometer-empty"></i> <span>Leave Management</span> <i
+                                class="icon-submenu lnr lnr-chevron-left"></i></a>
+                        <div id="subPages8" class="collapse ">
+                            <ul class="nav">
+                                <li>
+                                    <a href="#" [routerLink]="['/shailerscrm/admin/leave/reruest']">Leave Request</a>
+                                
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#subPages9" data-toggle="collapse" class="collapsed"><i
+                            class="fa fa-database"></i> <span>Domain Management</span> <i
+                                class="icon-submenu lnr lnr-chevron-left"></i></a>
+                        <div id="subPages9" class="collapse ">
+                            <ul class="nav">
+                                <li>
+                                    <a href="#" [routerLink]="['/shailerscrm/admin/domain/data']">Domain Data</a>
+                                
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#subPages10" data-toggle="collapse" class="collapsed"><i
+                            class="fa fa-cog"></i> <span>Master Management</span> <i
+                                class="icon-submenu lnr lnr-chevron-left"></i></a>
+                        <div id="subPages10" class="collapse ">
+                            <ul class="nav">
+                                <li>
+                                    <a href="#" [routerLink]="['/shailerscrm/admin/shift/type/list']">Shift Type List</a>
+                                    <a href="#" [routerLink]="['/shailerscrm/admin/shift/list']">Shift  List</a>
+                                    <a href="#" [routerLink]="['/shailerscrm/admin/office/list']">Office List</a>
+                                    <a href="#" [routerLink]="['/shailerscrm/admin/department/list']">Department List</a>
+                                
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#" (click)="logOut()">
+                            <i class="fa fa-sign-out"></i> <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+    <!-- <app-footer></app-footer> -->
+</div>
+
+<!-- END LEFT SIDEBAR -->

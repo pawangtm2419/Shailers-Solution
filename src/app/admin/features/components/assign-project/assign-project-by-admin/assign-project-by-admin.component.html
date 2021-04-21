@@ -1,0 +1,146 @@
+<div class="main">
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="container-fluid">
+            <h3 class="page-title">Assign Project</h3>
+            <div class="alert alert-success alert-dismissible fade in" [hidden]="!msg">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                <strong>Success!</strong> {{msg}}
+            </div>
+            <div class="alert alert-danger alert-dismissible fade in" [hidden]="!error">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                <strong>Fail!</strong> {{error}}
+            </div>
+            <div id="toastr-demo" class="panel">
+                <div class="panel-body">
+                    <!-- Start Form -->
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10">
+                                <div>
+                                    <form [formGroup]="assignProjectForm">
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-4 col-xs-12 form-group">
+                                                <label>Project</label>
+                                            </div>
+                                            <div class="col-md-5  col-sm-8 col-xs-12 form-group">
+                                                <select class="form-control"  formControlName="pro_id" required id="project" (change)="gstprojectListData($event)">
+
+                                                    <option value="">--Select--</option>
+                                                    <ng-container *ngFor="let data of projectListData">
+                                                        <option value={{data.pro_id}}>{{data.pro_name}}</option>
+
+                                                    </ng-container>
+                                                    <label *ngIf="submitted && f.pro_id.errors" class="invalid-form-error">
+                                                        <span *ngIf="f.pro_id.errors.required">Project Name is required</span>
+                                                    </label>
+                                                </select>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-4 col-xs-12 form-group">
+                                                <label>Activity</label>
+                                            </div>
+                                            <div class="col-md-5  col-sm-8 col-xs-12 form-group">
+                                                <select class="form-control" multiple="" formControlName="activity"
+                                                    id="activityy">
+                                                <ng-container *ngFor="let activity of acctivityData">
+                                                    <option>{{activity.activity_name}}</option>
+                                                </ng-container>
+                                            </select>
+                                            <label *ngIf="submitted && f.activity.errors" class="invalid-form-error">
+                                                <span *ngIf="f.activity.errors.required">Activity is required</span>
+                                            </label>
+                                                <p>You can select multiple activities.</p>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-4 col-xs-12 form-group">
+                                                <label>Employees</label>
+                                            </div>
+                                            <div class="col-md-5  col-sm-8 col-xs-12 form-group">
+                                                <select class="form-control" formControlName="emp_id" required  >
+                                                    <option value="">--Select--</option>
+                                                    <ng-container *ngFor="let item of employeeListData">
+
+                                                        <option title='{{item.emp_mobile}}' value={{item.emp_id}}>
+                                                            {{item.emp_name}}</option>
+                                                    </ng-container>
+
+                                                </select>
+                                                <label *ngIf="submitted && f.emp_id.errors" class="invalid-form-error">
+                                                    <span *ngIf="f.emp_id.errors.required">Emp Name is required</span>
+                                                </label>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-4 col-xs-12 form-group">
+                                                <label>Start date</label>
+                                            </div>
+                                            <div class="col-md-5  col-sm-8 col-xs-12 form-group">
+                                                <input type="text" placeholder="dd-mm-yy" value="" [(ngModel)]="str_date" formControlName="str_date"
+                                                    id="datepicker" class="form-control"  bsDatepicker
+                                                    [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" autocomplete="off" required>
+                                                    <label *ngIf="submitted && f.str_date.errors" class="invalid-form-error">
+                                                        <span *ngIf="f.str_date.errors.required">Start Time is required</span>
+                                                    </label>
+                                                </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-4 col-xs-12 form-group">
+                                                <label>End Date</label>
+                                            </div>
+                                            <div class="col-md-5  col-sm-8 col-xs-12 form-group">
+                                                <input type="text" placeholder="dd-mm-yy" value="" [(ngModel)]="end_date" formControlName="end_date"
+                                                    id="datepicker2" class="form-control"  bsDatepicker
+                                                    [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" autocomplete="off" required>
+                                                    <label *ngIf="submitted && f.end_date.errors" class="invalid-form-error">
+                                                        <span *ngIf="f.end_date.errors.required">End Time is required</span>
+                                                    </label>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-4 col-xs-12 form-group">
+                                                <label>Message</label>
+                                            </div>
+                                            <div class="col-md-5  col-sm-8 col-xs-12 form-group">
+                                                <textarea rows="3" class="form-control" formControlName="msg"
+                                                    placeholder="300 words only" required></textarea>
+                                                    <label *ngIf="submitted && f.msg.errors" class="invalid-form-error">
+                                                        <span *ngIf="f.msg.errors.required">Message is required</span>
+                                                    </label>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 form-group text-center">
+                                                <input type="submit" value="Assign "  (click)="assignProject()" class="btn btn-submit">
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 form-group text-center">
+                                                <a [routerLink]="['/shailerscrm/admin/assign/project']"  class="btn btn-submit">Close</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                    <!-- End Form -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT -->
+</div>

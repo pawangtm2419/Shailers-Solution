@@ -1,0 +1,134 @@
+<div class="main">
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="container-fluid">
+            <h3 class="page-title">Take Leave</h3>
+           
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <div class="alert alert-danger" [hidden]="!error">
+                        {{error}}
+                    </div>
+                    <div class="alert alert-success" [hidden]="!msg">
+                        {{msg}}
+                    </div>
+                </div>
+            </div>
+                  
+            <div id="toastr-demo" class="panel">
+                <div class="panel-body">
+                    <!-- Start Form -->
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10">
+                                <div>
+                                    <form [formGroup]="takeLeaveForm">
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group text-center">
+                                                
+                                                <label>You have not take any leave in this month, You have 1 paid leave.</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-4 col-xs-4 form-group">
+                                                <label>Start Date</label>
+                                            </div>
+                                            <div class="col-md-5  col-sm-8 col-xs-8 form-group">
+                                                <input type="text" name="str_date" formControlName="str_date" placeholder="dd-mm-yyyy" autocomplete="off" id="datepicker2" required class="form-control">
+                                                <label *ngIf="submitted && f.str_date.errors" class="invalid-form-error">
+                                                    <span *ngIf="f.str_date.errors.required">Start time is required</span>
+                                                </label>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-4 col-xs-4 form-group">
+                                                <label>End Date</label>
+                                            </div>
+                                            <div class="col-md-5  col-sm-8 col-xs-8 form-group">
+                                                <input type="text" name="end_date" formControlName="end_date" placeholder="dd-mm-yyyy" autocomplete="off" id="datepicker3" required class="form-control">
+                                                <label *ngIf="submitted && f.end_date.errors" class="invalid-form-error">
+                                                    <span *ngIf="f.end_date.errors.required">End time is required</span>
+                                                </label>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-4 col-xs-4 form-group">
+                                                <label>Duration</label>
+                                            </div>
+                                            <div class="col-md-5  col-sm-8 col-xs-8 form-group">
+                                                <input type="text" name="diff" formControlName="duration" id="diff" class="form-control" >
+                                                <label *ngIf="submitted && f.duration.errors" class="invalid-form-error">
+                                                    <span *ngIf="f.duration.errors.required">Duration is required</span>
+                                                </label>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-4 col-xs-4 form-group">
+                                                <label>Leave Type</label>
+                                            </div>
+                                            <div class="col-md-5  col-sm-8 col-xs-8 form-group">
+                                                <select name="leave_type" formControlName="leave_type" class="form-control" required>
+                                                    <option value="">--Select--</option>
+                                                    <option value="Paid Leave">Paid Leave</option>
+                                                    <option value="Casual Leave">Casual Leave</option>
+                                                    <option value="Sick Leave">Sick Leave</option>
+                                                    <option value="Other Leave">Other Leave</option>
+                                                </select>
+                                                <label *ngIf="submitted && f.leave_type.errors" class="invalid-form-error">
+                                                    <span *ngIf="f.leave_type.errors.required">Leave type is required</span>
+                                                </label>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                                <div class="col-lg-2 col-md-2"></div>
+                                                <div class="col-md-3 col-sm-4 col-xs-4 form-group">
+                                                    <label>Reason</label>
+                                                </div>
+                                                <div class="col-md-5  col-sm-8 col-xs-8 form-group">
+                                                    <textarea name="reason" formControlName="reason" rows="4" class="form-control" required></textarea>
+                                                    <label *ngIf="submitted && f.reason.errors" class="invalid-form-error">
+                                                        <span *ngIf="f.reason.errors.required">Reason is required</span>
+                                                    </label>
+                                                </div>
+                                                <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-4 col-xs-4 form-group">
+                                                <label>Emergency Number</label>
+                                            </div>
+                                            <div class="col-md-5  col-sm-8 col-xs-8 form-group">
+                                                <input type="text" formControlName="em_number" name="em_number" class="form-control" autocomplete="off" minlength=10 maxlength=10>
+                                                <label *ngIf="submitted && f.em_number.errors" class="invalid-form-error">
+                                                    <span *ngIf="f.em_number.errors.required">Emergency  Number is required</span>
+                                                </label>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                                                <input type="submit" name="rqst" (click)="takeLeave()" value="Request" class="btn btn-submit">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                    <!-- End Form -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

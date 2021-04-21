@@ -1,0 +1,115 @@
+<!-- WRAPPER -->
+<div id="wrapper">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="brand">
+            <a href="index.php"><img src="assets/img/logo-dark.png" alt="Shailers Logo" class="img-responsive logo"></a>
+        </div>
+        <div class="container-fluid">
+            <div class="navbar-btn">
+                <button type="button" class="btn-toggle-fullwidth">
+                    <i class="fa fa-bars" aria-hidden="true" (click)="openSideNav()"></i>
+                </button>
+            </div>
+            <div id="navbar-menu">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
+                            <i class="lnr lnr-alarm"></i>
+                            <span class="badge bg-danger">0</span>
+                        </a>
+                        <ul class="dropdown-menu notifications">
+                            <li>
+                                <a href="#" class="notification-item text-primary" style="color: blue;">
+                                    <span class="dot bg-primary"></span>
+                                    You have new project assigned &nbsp; 11-26-20
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="notification-item text-primary"  style="color: blue;">
+                                    <span class="dot bg-primary"></span>
+                                    You have new project assigned &nbsp; 11-26-20
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li *ngIf="user != null" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img  src="https://www.shailersolutions.com/shailerscrm/images/{{user.image}}" class="img-circle profile" alt="">
+                            <span>{{user.emp_name}}</span>
+                            <i class="icon-submenu lnr lnr-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" [routerLink]="['/shailerscrm/index/emp-update-profile']"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
+                            <!--<li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>-->
+                            <li><a [routerLink]="['/shailerscrm/change-password']"><i class="lnr lnr-cog"></i> <span>Change
+                                        Password</span></a></li>
+                            <li><a href="#" (click)="logOut()"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- END NAVBAR -->
+    <!-- LEFT SIDEBAR -->
+    <div id="sidebar-nav" class="sidebar open" #sideNavBar>
+        <div class="sidebar-scroll">
+            <nav>
+                <ul class="nav">
+                    <li>
+                        <a href="#" [routerLink]="['/shailerscrm/index/emp-dashboard']">
+                            <i class="lnr lnr-home"></i> <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" [routerLink]="['/shailerscrm/index/emp-attendence']"> 
+                            <i class="fa fa-camera-retro"></i> <span>Attendence</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" [routerLink]="['/shailerscrm/index/addtimesheet']">
+                            <i class="fa fa-calendar-plus-o"></i> <span>Add Timesheet</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" [routerLink]="['/shailerscrm/index/emp-timesheet']">
+                            <i class="fa fa-calendar"></i> <span>Timesheet</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" [routerLink]="['/shailerscrm/index/emp-projectlist']">
+                            <i class="fa fa-file-code-o"></i> <span>Project List</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#subPages8" data-toggle="collapse" class="collapsed"><i
+                                class="fa fa-thermometer-empty"></i> <span>Leave Management</span> <i
+                                class="icon-submenu lnr lnr-chevron-left"></i></a>
+                        <div id="subPages8" class="collapse ">
+                            <ul class="nav">
+                                <li>
+                                    <a href="#" [routerLink]="['/shailerscrm/index/emp-take-leave']" >Send Application</a>
+                                    <a href="#" [routerLink]="['/shailerscrm/index/emp-leave-history']">Leave History</a>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#" (click)="logOut()">
+                            <i class="fa fa-sign-out"></i> <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>  
+    <router-outlet></router-outlet>
+    <!-- <app-footer></app-footer> -->
+</div>
+
+<!-- END LEFT SIDEBAR -->

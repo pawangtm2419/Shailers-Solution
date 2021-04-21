@@ -1,0 +1,279 @@
+<div class="main">
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="container-fluid">
+            <h3 class="page-title">Add Project</h3>
+            <div class="alert alert-success alert-dismissible fade in" [hidden]="!msg">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                <strong>Success!</strong> {{msg}}
+            </div>
+            <div class="alert alert-danger alert-dismissible fade in" [hidden]="!error">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                <strong>Fail!</strong> {{error}}
+            </div>
+            <div id="toastr-demo" class="panel">
+                <div class="panel-body">
+                    <!-- Start Form -->
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10">
+                                <div>
+                                    <form [formGroup]="addProjectForm">
+                                        <div class="row">
+                                            <div class="col-lg-1 col-md-1"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>Project Type</label>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                                                <select name="pro_type"  formControlName="pro_type" class="form-control">
+                                                    <option value="0">Select Project</option>
+                                                    <option value="0">Simple Project</option>
+                                                    <option value="1">Moderate Project</option>
+                                                    <option value="1">Complex Project</option>
+                                                </select>
+                                                <label *ngIf="submitted && f.pro_type.errors" class="invalid-form-error">
+                                                    <span *ngIf="f.pro_type.errors.required">Project Type is required</span>
+                                                </label>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-1 col-md-1"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>Project Name</label>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                                                <input type="text" formControlName="pro_name" value="" class="form-control" required
+                                                    autocomplete="off">
+                                                    <label *ngIf="submitted && f.pro_name.errors" class="invalid-form-error">
+                                                        <span *ngIf="f.pro_name.errors.required">Project name is required</span>
+                                                    </label>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-1 col-md-1"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>Project Description</label>
+                                            </div>
+                                            <div class="col-md-6  col-sm-12 col-xs-12 form-group">
+                                                <textarea rows="3" class="form-control" formControlName="pro_desc" required
+                                                    autocomplete="off"></textarea>
+                                                    <label *ngIf="submitted && f.pro_desc.errors" class="invalid-form-error">
+                                                        <span *ngIf="f.pro_desc.errors.required">Project description is required</span>
+                                                    </label>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-1 col-md-1"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>Client Name</label>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                                                <select class="form-control selectpicker"
+                                                    (change)="changeClient('clientDetails', $event)" formControlName="client_name"
+                                                    id="clients">
+                                                    <option value="">--Select--</option>
+
+                                                    <ng-container *ngFor="let item of clientListData">
+                                                        <option value="{{item.unq_client_id}}">{{item.client_name}}
+                                                        </option>
+                                                    </ng-container>
+                                                </select>
+                                                <label *ngIf="submitted && f.client_name.errors" class="invalid-form-error">
+                                                    <span *ngIf="f.client_name.errors.required">Client Name is required</span>
+                                                </label>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <ng-container *ngIf="formName == 'clientDetails'">
+                                            <ng-container *ngFor="let data of clientsDetailsData">
+                                                <div class="row">
+                                                    <div class="col-lg-1 col-md-1"></div>
+                                                    <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                        <label>Mobile Number</label>
+                                                    </div>
+                                                    <div class="col-md-6  col-sm-12 col-xs-12 form-group">
+                                                        <input type="text" class="form-control" name="client_mobile"
+                                                            value="{{data.client_mobile}}" required
+                                                            autocomplete="off">
+                                                            <!-- <label *ngIf="submitted && f.client_mobile.errors" class="invalid-form-error">
+                                                                <span *ngIf="f.client_mobile.errors.required">Mobile Number is required</span>
+                                                            </label> -->
+                                                    </div>
+                                                    <div class="col-lg-2 col-md-2"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-1 col-md-1"></div>
+                                                    <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                        <label>Email Id</label>
+                                                    </div>
+                                                    <div class="col-md-6  col-sm-12 col-xs-12 form-group">
+                                                        <input type="email" class="form-control" name="client_email"
+                                                            value="{{data.client_email}}"  required
+                                                            autocomplete="off">
+                                                            <!-- <label *ngIf="submitted && f.client_email.errors" class="invalid-form-error">
+                                                                <span *ngIf="f.client_email.errors.required">Email Id is required</span>
+                                                            </label> -->
+                                                    </div>
+                                                    <div class="col-lg-2 col-md-2"></div>
+                                                </div>
+                                            </ng-container>
+                                        </ng-container>
+                                        <div id="clients_details">
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-1 col-md-1"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>Project Start Date</label>
+                                            </div>
+                                            <div class="col-md-6  col-sm-12 col-xs-12 form-group">
+                                                <input type="text" class="form-control" formControlName="pro_strt_date"
+                                                    placeholder="dd-mm-yy" bsDatepicker
+                                                    [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" required
+                                                    autocomplete="off">
+                                                    <label *ngIf="submitted && f.pro_strt_date.errors" class="invalid-form-error">
+                                                        <span *ngIf="f.pro_strt_date.errors.required">Start date is required</span>
+                                                    </label>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-1 col-md-1"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>Project End Date</label>
+                                            </div>
+                                            <div class="col-md-6  col-sm-12 col-xs-12 form-group">
+                                                <input type="text" class="form-control" formControlName="pro_end_date"
+                                                    placeholder="dd-mm-yy" bsDatepicker
+                                                    [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" id="datepicker3"
+                                                    required autocomplete="off">
+                                                    <label *ngIf="submitted && f.pro_end_date.errors" class="invalid-form-error">
+                                                        <span *ngIf="f.pro_end_date.errors.required">End date is required</span>
+                                                    </label>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div id="hidden">
+                                            <div class="row">
+                                                <div class="col-lg-1 col-md-1"></div>
+                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                    <label>Project Cost (in ₹)</label>
+                                                </div>
+                                                <div class="col-md-6  col-sm-12 col-xs-12 form-group">
+                                                    <input type="text" formControlName="pro_cost" class="form-control"
+                                                        maxlength="7" required autocomplete="off" id="cost">
+                                                        <label *ngIf="submitted && f.pro_cost.errors" class="invalid-form-error">
+                                                            <span *ngIf="f.pro_cost.errors.required">Project cost is required</span>
+                                                        </label>
+                                                </div>
+                                                <div class="col-lg-2 col-md-2"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-1 col-md-1"></div>
+                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                    <label>GST</label>
+                                                </div>
+                                                <div class="col-md-2  col-sm-4 col-xs-4 form-group">
+                                                    <select formControlName="gstt" class="form-control" id="g_val"
+                                                        (change)="gstBoxDetails($event)">
+
+                                                        <option (click)="closeGstBox()" value="0">No</option>
+                                                        <option (click)="openGstBox()" value="1">Yes</option>
+                                                    </select>
+                                                    <label *ngIf="submitted && f.gstt.errors" class="invalid-form-error">
+                                                        <span *ngIf="f.gstt.errors.required">GST is required</span>
+                                                    </label>
+                                                </div>
+                                                <div id="gsttt" #gstBox class="gst-box-close">
+                                                    <div class="col-md-2  col-sm-4 col-xs-4 form-group">
+                                                        <input type="text" (change)="gstCalculation()"
+                                                            [(ngModel)]="inputMoneyData" formControlName="gst" id="gst_val"
+                                                            value="" class="form-control">
+                                                            <!-- <label *ngIf="submitted && f.gst.errors" class="invalid-form-error">
+                                                                <span *ngIf="f.gst.errors.required">Username is required</span>
+                                                            </label> -->
+                                                    </div>
+                                                    <div class="col-md-2  col-sm-4 col-xs-4 form-group">
+                                                        <input type="text" id="result" value="{{tot_price}}"
+                                                        formControlName="gst_cal" class="form-control" autocomplete="off">
+                                                        <!-- <label *ngIf="submitted && f.gst_cal.errors" class="invalid-form-error">
+                                                            <span *ngIf="f.gst_cal.errors.required">Username is required</span>
+                                                        </label> -->
+                                                        <!-- <span id="result"></span> -->
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-2 col-md-2"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-1 col-md-1"></div>
+                                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                    <input type="checkbox" (change)="advancePayment($event)"
+                                                    formControlName="advance" value="1" id="advance">
+                                                    <label *ngIf="submitted && f.advance.errors" class="invalid-form-error">
+                                                        <span *ngIf="f.advance.errors.required">Click the check box is required</span>
+                                                    </label>
+                                                    <label for="advance">Advance Payment</label>
+                                                </div>
+
+                                                <ng-container>
+                                                    <div id="hidden2" #advanceBox class="gst-box-close">
+                                                        <div class="col-md-2  col-sm-4 col-xs-4 form-group">
+                                                            <input type="text" formControlName="advance_money" placeholder="In ₹"
+                                                                class="form-control" autocomplete="off">
+                                                                <label *ngIf="submitted && f.advance_money.errors" class="invalid-form-error">
+                                                                    <span *ngIf="f.advance_money.errors.required">Advance payment  is required</span>
+                                                                </label>
+                                                        </div>
+                                                        <div class="col-md-2  col-sm-4 col-xs-4 form-group">
+                                                            <select formControlName="advance_type" class="form-control">
+                                                                <option value="">--Select--</option>
+                                                                <option value="Cash">Cash</option>
+                                                                <option value="Online">Online</option>
+                                                                <option value="NEFT">NEFT</option>
+                                                                <option value="Cheque">Cheque</option>
+                                                            </select>
+                                                            <label *ngIf="submitted && f.advance_type.errors" class="invalid-form-error">
+                                                                <span *ngIf="f.advance_type.errors.required">Advance case is required</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="col-md-2  col-sm-4 col-xs-4 form-group">
+                                                            <input type="text" placeholder="mm/dd/yy" bsDatepicker
+                                                                [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }"
+                                                                name="advance_date" id="datepicker" autocomplete="off"
+                                                                class="form-control">
+                                                                <!-- <label *ngIf="submitted && f.advance_date.errors" class="invalid-form-error">
+                                                                    <span *ngIf="f.advance_date.errors.required">Username is required</span>
+                                                                </label> -->
+                                                        </div>
+                                                    </div>
+                                                </ng-container>
+                                                <div class="col-lg-2 col-md-2"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                                                <input type="submit" value="Add Project" (click)="addProject()" name="reg"
+                                                    class="btn btn-submit">
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                                                <a [routerLink]="['/shailerscrm/admin/manage/project']"
+                                                    class="btn btn-submit">Close</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                    <!-- End Form -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT -->
+</div>

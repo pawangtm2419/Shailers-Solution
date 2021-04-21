@@ -1,0 +1,133 @@
+<div class="main">
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="container-fluid">
+            <h3 class="page-title">Add Shift</h3>
+            <div class="alert alert-success alert-dismissible fade in" [hidden]="!msg">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                <strong>Success!</strong> {{msg}}
+            </div>
+            <div class="alert alert-danger alert-dismissible fade in" [hidden]="!error">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                <strong>Fail!</strong> {{error}}
+            </div>
+            <div id="toastr-demo" class="panel">
+                <div class="panel-body">
+                    <!-- Start Form -->
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10">
+                                <div>
+                                    <form [formGroup]="addShiftForm">
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>Select Shift Type</label>
+                                            </div>
+                                            <div class="col-md-5  col-sm-12 col-xs-12 form-group">
+                                                <select formControlName="shift_type_id" class="form-control" (change)="getId($event)">
+                                                    <option value=""> Select Shift Type </option>
+                                                   <ng-container *ngFor="let data of shiftTypeList">
+                                                    <option  value="{{data.id}}">{{data.name}}</option>
+                                                   </ng-container>
+                                                </select>
+                                                <label *ngIf="submitted && f.shift_type_id.errors" class="invalid-form-error">
+                                                    <span *ngIf="f.shift_type_id.errors.required"> Shift Type is required</span>
+                                                </label>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>Shift Name</label>
+                                            </div>
+                                            <div class="col-md-5  col-sm-12 col-xs-12 form-group">
+                                                <input type="text" formControlName="name" class="form-control" autocomplete="off">
+                                                <label *ngIf="submitted && f.name.errors" class="invalid-form-error">
+                                                    <span *ngIf="f.name.errors.required">Shift Name is required</span>
+                                                </label>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label> Intime </label>
+                                            </div>
+                                            <div class="col-md-5  col-sm-12 col-xs-12 form-group">
+                                                <input type="text" formControlName="intime" class="form-control"
+                                                    autocomplete="off">
+                                                    <label *ngIf="submitted && f.intime.errors" class="invalid-form-error">
+                                                        <span *ngIf="f.intime.errors.required">In time is required</span>
+                                                    </label>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label> Outtime </label>
+                                            </div>
+                                            <div class="col-md-5  col-sm-12 col-xs-12 form-group">
+                                                <input type="text" formControlName="outtime" class="form-control"
+                                                    autocomplete="off">
+                                                    <label *ngIf="submitted && f.outtime.errors" class="invalid-form-error">
+                                                        <span *ngIf="f.outtime.errors.required">Out time is required</span>
+                                                    </label>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label> Intime Relaxation </label>
+                                            </div>
+                                            <div class="col-md-5  col-sm-12 col-xs-12 form-group">
+                                                <input type="text" formControlName="intime_relaxation" class="form-control"
+                                                    autocomplete="off">
+                                                    <label *ngIf="submitted && f.intime_relaxation.errors" class="invalid-form-error">
+                                                        <span *ngIf="f.intime_relaxation.errors.required">In time relaxation is required</span>
+                                                    </label>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label> Outtime Relaxation </label>
+                                            </div>
+                                            <div class="col-md-5  col-sm-12 col-xs-12 form-group">
+                                                <input type="text" formControlName="outtime_relaxation" class="form-control"
+                                                    autocomplete="off">
+                                                    <label *ngIf="submitted && f.outtime_relaxation.errors" class="invalid-form-error">
+                                                        <span *ngIf="f.outtime_relaxation.errors.required">Out time relaxation is required</span>
+                                                    </label>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                                                <input type="submit" value="Save" name="reg" (click)="addShiftData()" class="btn btn-submit">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                    <!-- End Form -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT -->
+</div>

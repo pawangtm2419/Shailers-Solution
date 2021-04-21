@@ -1,0 +1,66 @@
+.input-search-box{
+    width: 132px;
+    height: 22px;
+    margin-top: 3px;
+    border: 0.1rem solid black;
+}
+
+.attendence-list-row{
+    width: 33px;
+    height: 32px;
+    padding: 8px 10px;
+    border: 2px solid #80808061;
+}
+
+.details-open{
+    width: 18px;
+    height: 18px;
+    border-radius: 100%;
+   border: 1px solid #ddd;
+    color: #fff;
+    box-shadow: 0 0px 2px 1px #ddd;
+   position: absolute;
+    margin-left: 81px;
+    display: inline-block;
+}
+
+.details-open-text{
+    width: 12px;
+    height: 12px;
+    margin: 2px 1px 0px 2px;;
+    background-color: green;
+    color: #fff;
+    border-radius: 100%;
+    position: absolute;
+    text-align: center;
+    
+}
+.details-close-text{
+    width: 12px;
+    height: 12px;
+    margin: 3px 1px 0px 1px;
+    background-color: red;
+    color: #fff;
+    border-radius: 100%;
+    position: absolute;
+    text-align: center;
+}
+.plus-text{
+    position: relative;
+    margin:-5px -1px 0px -1px;
+    cursor: pointer;
+    
+}
+.minus-text{
+    position: relative;
+    margin: -5px -1px -1px 0px;
+    cursor: pointer;
+}
+
+.close{
+    display: none;
+}
+
+.open{
+    display: block;
+}

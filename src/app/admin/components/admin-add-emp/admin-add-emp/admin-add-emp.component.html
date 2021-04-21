@@ -1,0 +1,321 @@
+<div class="main">
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="container-fluid">
+            <h3 class="page-title">Add Employee</h3>
+            <div class="alert alert-success alert-dismissible fade in" [hidden]="!msg">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                <strong>Success!</strong> {{msg}}
+            </div>
+            <div class="alert alert-danger alert-dismissible fade in" [hidden]="!error">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                <strong>Fail!</strong> {{error}}
+            </div>
+            <div id="toastr-demo" class="panel">
+                <div class="panel-body">
+                    <!-- Start Form -->
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10">
+                                <div>
+                                    <form  [formGroup]="addEmpForm">
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>Name</label>
+                                            </div>
+                                            <div class="col-md-5  col-sm-12 col-xs-12 form-group">
+                                                <input type="text"  formControlName="name" class="form-control" autocomplete="off">
+                                                <label *ngIf="submitted && f.name.errors" class="invalid-form-error">
+                                                    <span *ngIf="f.name.errors.required">Name is required</span>
+                                                </label>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>Select Office Name</label>
+                                            </div>
+                                            <div class="col-md-5  col-sm-12 col-xs-12 form-group">
+                                                <select formControlName="office_id" class="form-control">
+                                                    <option value=""> Select Office </option>
+                                                    <option value=""> Sales Office </option>
+                                                    <option value=""> Branch Office </option>
+                                                    <option value=""> Head Office </option>
+                                                </select>
+                                                <!-- <label *ngIf="submitted && f.office_id.errors" class="invalid-form-error">
+                                                    <span *ngIf="f.office_id.errors.required">Office Name is required</span>
+                                                </label> -->
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>Select Department Name</label>
+                                            </div>
+                                            <div class="col-md-5  col-sm-12 col-xs-12 form-group">
+                                                <select name="department_id" formControlName="department_id" class="form-control">
+                                                    <option value=""> Select Department </option>
+                                                    <option value="2"> IT Department </option>
+                                                    <option value="1"> HR Department </option>
+                                                </select>
+                                                <!-- <label *ngIf="submitted && f.department_id.errors" class="invalid-form-error">
+                                                    <span *ngIf="f.department_id.errors.required">Department Name is required</span>
+                                                </label> -->
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>Select Shift Name</label>
+                                            </div>
+                                            <div class="col-md-5  col-sm-12 col-xs-12 form-group">
+                                                <select name="shift_id" formControlName="shift_id" class="form-control">
+                                                    <option value=""> Select Shift </option>
+                                                    <option value="2"> Morning Shift </option>
+                                                </select>
+                                                <!-- <label *ngIf="submitted && f.shift_id.errors" class="invalid-form-error">
+                                                    <span *ngIf="f.shift_id.errors.required">Shift Name is required</span>
+                                                </label> -->
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>Designation</label>
+                                            </div>
+                                            <div class="col-md-5  col-sm-12 col-xs-12 form-group">
+                                                <select class="form-control" formControlName="desg" name="desg" required>
+                                                    <option value="">--Select--</option>
+                                                    <option value="Software Engineer Trainee">Software Engineer Trainee
+                                                    </option>
+                                                    <option value="Software Engineer">Software Engineer</option>
+                                                    <option value="PHP Web Developer Trainee">PHP Web Developer Trainee
+                                                    </option>
+                                                    <option value="PHP Web Developer">PHP Web Developer</option>
+                                                    <option value="Web Designer Traineer">Web Designer Trainee</option>
+                                                    <option value="Web Designer">Web Designer</option>
+                                                    <option value="Telecaller">Telecaller</option>
+                                                    <option value="Java Developer Trainee">Java Trainee</option>
+                                                    <option value="Java Developer">Java Developer</option>
+                                                    <option value="Digital Marketing Trainee">Digital Marketing Trainee
+                                                    </option>
+                                                    <option value="Digital Marketing Expert">Digital Marketing Expert
+                                                    </option>
+                                                    <option value="Mobile App Developer">Mobile App Developer</option>
+                                                    <option value="Sales and Marketing">Sales & Marketing</option>
+                                                    <option value="Software Tester Trainee">Software Tester Trainee
+                                                    </option>
+                                                </select>
+                                                <label *ngIf="submitted && f.desg.errors" class="invalid-form-error">
+                                                    <span *ngIf="f.desg.errors.required">Designation is required</span>
+                                                </label>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>Mobile Number</label>
+                                            </div>
+                                            <div class="col-md-5  col-sm-12 col-xs-12 form-group">
+                                                <input type="text" formControlName="mobile" name="mobile" class="form-control" minlength="10"
+                                                    maxlength="10" autocomplete="off">
+                                                    <label *ngIf="submitted && f.mobile.errors" class="invalid-form-error">
+                                                        <span *ngIf="f.mobile.errors.required">Mobile is required</span>
+                                                    </label>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>Email Id</label>
+                                            </div>
+                                            <div class="col-md-5  col-sm-12 col-xs-12 form-group">
+                                                <input type="email" formControlName="email" name="email" class="form-control"
+                                                    autocomplete="off">
+                                                    <label *ngIf="submitted && f.email.errors" class="invalid-form-error">
+                                                        <span *ngIf="f.email.errors.required">Email Id is required</span>
+                                                    </label>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row" >
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>Gender</label>
+                                            </div>
+                                            <div class="col-md-2  col-sm-12 col-xs-12 form-group">
+                                                <input type="radio" name="gen" formControlName="gen" id="male" value="Male" class="">
+                                                <label for="male">Male</label>
+                                                <label *ngIf="submitted && f.gen.errors" class="invalid-form-error">
+                                                    <span *ngIf="f.gen.errors.required">Gender is required</span>
+                                                </label>
+                                            </div>
+                                            <div class="col-md-3  col-sm-12 col-xs-12 form-group">
+                                                <input type="radio" name="gen" formControlName="gen" id="female" value="Female" class="">
+                                                <label for="female">Female</label>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>DOB</label>
+                                            </div>
+                                            <div class="col-md-5  col-sm-12 col-xs-12 form-group">
+                                                <input type="text" formControlName="dob" name="dob" id="datepicker" placeholder="dd-mm-yy"
+                                                    class="form-control" autocomplete="off">
+                                                    <label *ngIf="submitted && f.dob.errors" class="invalid-form-error">
+                                                        <span *ngIf="f.dob.errors.required">DOB is required</span>
+                                                    </label>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>Date of Joining</label>
+                                            </div>
+                                            <div class="col-md-5  col-sm-12 col-xs-12 form-group">
+                                                <input type="text" formControlName="doj" name="doj" id="datepicker2" placeholder="dd-mm-yy"
+                                                    class="form-control" autocomplete="off">
+                                                    <label *ngIf="submitted && f.doj.errors" class="invalid-form-error">
+                                                        <span *ngIf="f.doj.errors.required">Date of Joining is required</span>
+                                                    </label>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>Salary (Per month in ₹)</label>
+                                            </div>
+                                            <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                                                <input type="text" formControlName="sal" placeholder="" name="sal" maxlength="5"
+                                                    class="form-control" autocomplete="off">
+                                                    <!-- <label *ngIf="submitted && f.sal.errors" class="invalid-form-error">
+                                                        <span *ngIf="f.sal.errors.required">Salary is required</span>
+                                                    </label> -->
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>Account Number</label>
+                                            </div>
+                                            <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                                                <input type="text" placeholder="" formControlName="acc_no" name="acc_no" class="form-control"
+                                                    autocomplete="off">
+                                                    <!-- <label *ngIf="submitted && f.acc_no.errors" class="invalid-form-error">
+                                                        <span *ngIf="f.acc_no.errors.required">Account Number is required</span>
+                                                    </label> -->
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>Bank Name</label>
+                                            </div>
+                                            <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                                                <input type="text" placeholder="" formControlName="bank_name" name="bank_name" class="form-control"
+                                                    autocomplete="off">
+                                                    <!-- <label *ngIf="submitted && f.bank_name.errors" class="invalid-form-error">
+                                                        <span *ngIf="f.bank_name.errors.required">Bank Name is required</span>
+                                                    </label> -->
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>IFSC Code</label>
+                                            </div>
+                                            <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                                                <input type="text" placeholder="" formControlName="ifsc" name="ifsc" class="form-control"
+                                                    autocomplete="off">
+                                                    <!-- <label *ngIf="submitted && f.ifsc.errors" class="invalid-form-error">
+                                                        <span *ngIf="f.ifsc.errors.required">IFSC is required</span>
+                                                    </label> -->
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>Monthly Target (If Any)</label>
+                                            </div>
+                                            <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                                                <input type="text" placeholder="" formControlName="mon_target" name="mon_target" class="form-control"
+                                                    autocomplete="off">
+                                                    <!-- <label *ngIf="submitted && f.mon_target.errors" class="invalid-form-error">
+                                                        <span *ngIf="f.mon_target.errors.required">Monthly Target is required</span>
+                                                    </label> -->
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>Insentive (If Any)</label>
+                                            </div>
+                                            <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                                                <input type="text" placeholder="" formControlName="insentive" name="insentive" class="form-control"
+                                                    autocomplete="off">
+                                                    <!-- <label *ngIf="submitted && f.insentive.errors" class="invalid-form-error">
+                                                        <span *ngIf="f.insentive.errors.required">Insentive is required</span>
+                                                    </label> -->
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>Bonus (If Any)</label>
+                                            </div>
+                                            <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                                                <input type="text" placeholder="" formControlName="bonus" name="bonus" class="form-control"
+                                                    autocomplete="off">
+                                                    <!-- <label *ngIf="submitted && f.bonus.errors" class="invalid-form-error">
+                                                        <span *ngIf="f.bonus.errors.required">Bonus is required</span>
+                                                    </label> -->
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <label>Default Module</label>
+                                            </div>
+                                            <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                                                <input type="checkbox" formControlName="module" name="module" value="0" checked> Timesheet
+                                              
+                                            </div>
+                                            <div class="col-lg-2 col-md-2"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                                                <input type="submit" value="Register" (click)="addEmpSubmit()" name="reg" class="btn btn-submit">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                    <!-- End Form -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT -->
+</div>

@@ -1,0 +1,129 @@
+<div class="main">
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="container-fluid">
+            <h3 class="page-title">Add Client</h3>
+            <div class="alert alert-success alert-dismissible fade in" [hidden]="!msg">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                <strong>Success!</strong> {{msg}}
+            </div>
+            <div class="alert alert-danger alert-dismissible fade in" [hidden]="!error">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                <strong>Fail!</strong> {{error}}
+            </div>
+            <div id="toastr-demo" class="panel">
+                <div class="panel-body">
+                    <!-- Start Form -->
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10">
+                                <div>
+                                    <form method="post">
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 form-group">
+                                                <label>Name</label>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 form-group">
+                                                <input type="text" name="client_name" class="form-control"
+                                                    autocomplete="off" required>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 form-group">
+                                                <label>Company Name</label>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 form-group">
+                                                <input type="text" name="company_name" class="form-control"
+                                                    autocomplete="off">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 form-group">
+                                                <label>Mobile</label>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 form-group">
+                                                <input type="text" name="client_mobile" class="form-control"
+                                                    maxlength="10" minlength="10" autocomplete="off" required>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 form-group">
+                                                <label>Alternate Mobile</label>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 form-group">
+                                                <input type="text" name="alt_mobile" class="form-control" maxlength="10"
+                                                    minlength="10" autocomplete="off">
+                                            </div>
+                                        </div>
+                                            <div class="row">
+                                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 form-group">
+                                                    <label>Email</label>
+                                                </div>
+                                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 form-group">
+                                                    <input type="email" name="client_email" class="form-control"
+                                                        autocomplete="off" required>
+                                                </div>
+                                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 form-group">
+                                                    <label>Other Email</label>
+                                                </div>
+                                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 form-group">
+                                                    <input type="email" name="other_email" class="form-control"
+                                                        autocomplete="off">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 form-group">
+                                                    <label>State</label>
+                                                </div>
+                                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 form-group">
+                                                    <select class="form-control" name="state" id="state">
+                                                      
+                                                        <option value="">--Select--</option>
+                                                        <option value="1">Andaman and Nicobar Islands</option>
+                                                       
+                                                    </select>
+                                                </div>
+                                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 form-group">
+                                                    <label>City</label>
+                                                </div>
+                                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 form-group">
+                                                    <select class="form-control" name="city" id="city">
+                                                        <option value="">--Select--</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                       <div class="row">
+                                        <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 form-group">
+                                            <label>Building</label>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 form-group">
+                                            <input type="text" name="building" class="form-control"
+                                                autocomplete="off">
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 form-group">
+                                            <label>Pin Code</label>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 form-group">
+                                            <input type="text" name="pincode" minlength="6" maxlength="6"
+                                                class="form-control" autocomplete="off">
+                                        </div> 
+                                       </div>
+                                       
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                                                <input type="submit" value="Submit" name="sub" class="btn btn-submit">
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                                                <a (click)="backToClientList()" class="btn btn-submit">Close</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                    <!-- End Form -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT -->
+</div>

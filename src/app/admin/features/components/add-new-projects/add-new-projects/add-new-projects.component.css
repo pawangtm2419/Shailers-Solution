@@ -1,0 +1,7 @@
+.gst-box-close{
+    display: none;
+}
+
+.gst-box-open{
+    display: block;
+}

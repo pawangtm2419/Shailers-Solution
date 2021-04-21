@@ -1,0 +1,56 @@
+<div class="main">
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="container-fluid">
+            <h3 class="page-title"> Add Attendance </h3>
+            <a href="#" [routerLink]="['/shailerscrm/index/emp-attendence']" class="btn btn-back"
+                style="background-color: #3545a7;"> Back <i class="fa fa-arrow-left"></i></a>
+            <div id="toastr-demo" class="panel">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <form [formGroup]="attendenceOutForm">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <!-- webcam is here start -->
+                                        <webcam [height]="300" [width]="300" [trigger]="triggerObservable"
+                                            (imageCapture)="handleImage($event)">
+                                        </webcam>
+                                        <input class="btn btn-primary  btn-lg" type=button value="Take Snapshot"
+                                            (click)="triggerSnapshot('snapShot');">
+
+                                        <ng-container *ngIf="formName == 'snapShot'" >
+                                            <div class="snapshot form-group"   *ngIf="webcamImage">
+                                                <img class="snap-shot-image-hide"  [height]="200" [width]="280" [src]="webcamImage.imageAsDataUrl" >
+                                             </div>
+                                             <div id="Submit" class="col-md-12 col-sm-12 col-xs-12 text-center">
+                                            
+                                             <br />
+                                             <button class="btn btn-success  btn-lg snap-shot-image-hide" (click)="submit()" >Submit</button>
+                                         </div>
+                                        </ng-container>
+                                       
+                                        <!-- <input type="hidden" name="image" class="image-tag"> -->
+                                    </div>
+                                    <!-- webcam is here end -->
+
+
+
+
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <div id="results">Your captured image will appear here...</div>
+                                    </div>
+                                      
+                                </div>
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

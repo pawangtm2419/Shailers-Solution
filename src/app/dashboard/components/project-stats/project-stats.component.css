@@ -1,0 +1,74 @@
+.metric {
+   
+    border-radius: 3px;
+    padding: 20px;
+    margin-bottom: 30px;
+    border: 1px solid #DCE6EB;
+    height: 79px;
+    width: 210px;
+}
+
+.metric-1 {
+    background-image: linear-gradient(to bottom,#10afff,#04c);
+    border-color: blue;
+    
+}
+	.metric-1 i{
+
+		color: #0081c2 !important;
+
+	}
+
+	.metric-2{
+
+		background-image: linear-gradient(to bottom,#ffa50080,#e69501);
+       
+		border-color: #d19019;
+
+	}
+
+	.metric-2 i{
+
+		color: #f7941e !important;
+
+	}
+
+	.metric-3{
+
+		background-image: linear-gradient(to bottom,#5dec25,#075907);
+       
+		border-color: green;
+
+	}
+
+	.metric-3 i{
+
+		color: #41b314 !important;
+
+	}
+
+	.metric-4{
+
+		background-image: linear-gradient(to bottom,red,#aa0a0a);
+      
+		border-color: #cf0c0c;
+
+	}
+
+	.metric-4 i{
+
+		color: red !important;
+
+	}
+
+	.metric p span{
+
+		color: #fff;
+        line-height: .9;
+	}
+
+	.metric .icon{
+
+		background-color: #fff;
+
+	}

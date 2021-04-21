@@ -1,0 +1,252 @@
+<div class="main">
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="container-fluid">
+            <h3 class="page-title">Invoice</h3>
+            <!--<a href="project-list.php" class="btn btn-back"><i class="fa fa-arrow-left"></i> Go Back</a>-->
+            <div id="toastr-demo" class="panel">
+                <div class="panel-body">
+                    <!-- Start Form -->
+                    <div class="container-fluid">
+                        <div class="row">
+                            <!-- <div class="col-md-1"></div> -->
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <form method="post">
+                                        <table class="table table-stripped table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td colspan="3">
+                                                        <h3>Shailers Solutions Private Limited.</h3>
+                                                        <p><b>Registered Office:-</b></p>
+                                                        <p>B-296, Ashok Nagar, Shahdhara, , 110093</p>
+                                                        <p><b>Phone:-</b>
+                                                            <select name="mobile">
+                                                                <option value="9899481938">9899481938</option>
+                                                                <option value="7303416041">7303416041</option>
+                                                            </select>
+                                                        </p>
+                                                        <p><b>E-Mail:-</b>
+                                                            <select name="email">
+                                                                <option value="himanshu@shailersolutions.com">
+                                                                    himanshu@shailersolutions.com</option>
+                                                            </select>
+                                                        </p>
+                                                        <p><b>GSTIN:</b> 07ABACS6128H1ZD</p>
+                                                        <p><b>PAN No.:</b> ABACS6128H</p>
+                                                    </td>
+                                                    <td colspan="2" class="text-center">
+                                                        <img src="assets/img/invoice-logo.jpg"
+                                                            style="width:115px"><br><br>
+                                                        <p>www.shailersolutions.com</p>
+                                                        <p>(ISO 270001:2013 Certified)</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3">
+                                                        <p><b>Buyer</b></p>
+                                                        <input type="hidden" name="client_name" value="New Client">
+                                                        <p><b>New Client</b></p>
+                                                        <p>asda</p>
+                                                        <p>New Delhi, 201301</p>
+                                                        <p>Delhi</p>
+                                                        <p>Mobile: 9058384640</p>
+                                                        <p>E-mail: himanshu@gmail.com</p>
+                                                        <p><b>GSTIN: <input type="text" name="cus_gstin" required></b>
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <p><b>Invoice No.:</b></p>
+                                                        <p>SS/230786</p>
+                                                    </td>
+                                                    <td>
+                                                        <p><b>Invoice Date:</b></p>
+                                                        <p>12-01-2021</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <p><b>Work Order Date:</b> 06-01-2021</p>
+                                                    </td>
+                                                    <td colspan="3" rowspan="2" width=50%>
+                                                        <p><b>Notes:</b></p>
+                                                        <textarea name="notes" class="form-control"></textarea>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <p><b>Work Order Reference:</b></p>
+                                                        <input type="text" name="work_ref" class="form-control">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p><b>S.No.</b></p>
+                                                    </td>
+                                                    <td style="width: 30%;">
+                                                        <p><b>Description</b></p>
+                                                    </td>
+                                                    <td>
+                                                        <p><b>Total Contract Cost(In Rs.)</b></p>
+                                                    </td>
+                                                    <td>
+                                                        <p><b>Bill Amount(In Rs.)</b></p>
+                                                    </td>
+                                                    <td>
+                                                        <p><b>Total Amount(In Rs.)</b></p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p><b>1</b></p>
+                                                    </td>
+                                                    <td>
+                                                        <p>Test1</p>
+                                                    </td>
+                                                    <td>
+                                                        <p>500</p>
+                                                    </td>
+                                                    <td>
+                                                        <p></p>
+                                                        <input type="hidden" name="invoice_amnt" value="">
+                                                    </td>
+                                                    <td>
+                                                        <!-- <p>
+                                                        <p></p>
+                                                        </p> -->
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan=2>
+                                                        <p><b>Total Amount Before Tax</b></p>
+                                                    </td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>
+                                                        <input type="hidden" value="" id="cost" class="txt">
+                                                        <p><b></b></p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan=2>
+                                                        <p>Add : IGST</p>
+                                                    </td>
+                                                    <td>
+                                                        <p>
+                                                            <select name="igst" id="igst" class="">
+                                                                <option value="0">--Select--</option>
+                                                                <option value="9">9</option>
+                                                                <option value="18">18</option>
+                                                            </select>
+                                                        </p>
+                                                    </td>
+                                                    <td></td>
+                                                    <td>
+                                                        <input type="text" name="igst_val" id="result" class="txt"
+                                                            readonly>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan=2>
+                                                        <p>Add : SGST</p>
+                                                    </td>
+                                                    <td>
+                                                        <p>
+                                                            <select name="sgst" id="sgst">
+                                                                <option value="0">--Select--</option>
+                                                                <option value="9">9</option>
+                                                                <option value="18">18</option>
+                                                            </select>
+                                                        </p>
+                                                    </td>
+                                                    <td></td>
+                                                    <td>
+                                                        <input type="text" name="sgst_val" id="result2" class="txt"
+                                                            readonly>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan=2>
+                                                        <p>Add : CGST</p>
+                                                    </td>
+                                                    <td>
+                                                        <p>
+                                                            <select name="cgst" id="cgst">
+                                                                <option value="0">--Select--</option>
+                                                                <option value="9">9</option>
+                                                                <option value="18">18</option>
+                                                            </select>
+                                                        </p>
+                                                    </td>
+                                                    <td></td>
+                                                    <td>
+                                                        <input type="text" name="cgst_val" id="result3" class="txt"
+                                                            readonly>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td colspan="3">
+                                                        <p><b>Total Amount After Tax</b></p>
+                                                    </td>
+                                                    <td>
+                                                        <p><input type="text" id='sum1' name="gst_total" /></p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3">
+                                                        <p><b>Amount Chargeable (in words)</b></p>
+                                                        <p><b><span id="word"></span></b></p>
+                                                    </td>
+                                                    <td colspan="2" align="right">
+                                                        <p><b>E.&OE.</b></p><br>
+                                                        <p><b>For Shailers Solutions Private Limited</b></p>
+                                                        <img src="assets/img/stamp.png"
+                                                            style="width:100px; height:100px">
+                                                        <p><b>Authorized Signatory</b></p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="5" align="center"><b>Payment History</b></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td colspan="3">
+                                                        <p><b>Account Information:</b></p>
+                                                        <p><b>SHAILERS SOLUTIONS PRIVATE LIMITED</b></p>
+                                                        <p>ICICI BANK</p>
+                                                        <p>A/C No: 250405000319</p>
+                                                        <p>IFSC Code: ICIC0002504</p>
+                                                        <p>MICR Code: 011229</p>
+                                                    </td>
+                                                    <td colspan="2" align="right">
+                                                        <p style="font-size:22px; color:rgb(0,176,80)"><b>You can pay
+                                                                online by</b></p>
+                                                        <img src="assets/img/Instamojo.png"
+                                                            style="width:200px; height:60px">
+                                                        <a href="#">
+                                                            <p>Click here</p>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="5" align="center">
+                                                        <input type="submit" name="sub" value="Submit"
+                                                            class="btn btn-submit">
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- <div class="col-md-1"></div> -->
+                        </div>
+                    </div>
+                    <!-- End Form -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT -->
+</div>
