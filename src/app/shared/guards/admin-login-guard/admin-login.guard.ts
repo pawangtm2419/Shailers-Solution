@@ -9,7 +9,8 @@ export class AdminLoginGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true;
+      let adminId = window.localStorage.getItem('admin_id');
+      return adminId != null;
   }
   
 }

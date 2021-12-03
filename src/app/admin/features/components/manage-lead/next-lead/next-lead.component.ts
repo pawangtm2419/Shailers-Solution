@@ -53,9 +53,7 @@ export class NextLeadComponent implements OnInit {
     
   }
 
-  updateLead(){
-    console.log("Testst=========");
-    
+  updateLead(){    
     this.msg = null;
     this.error = null;
     this.submitted = true;
@@ -75,16 +73,10 @@ export class NextLeadComponent implements OnInit {
     formData.append('status' , "2");
    this.addNewLeadService.addNewLead(formData).subscribe((response)=>{
      if(response.msg == "You have successfully Add Lead."){
-       this.msg = response.msg
-       console.log(this.msg);
-       
-     }else{
+       this.msg = response.msg       
+     } else {
        this.error = response.msg;
-       console.log(this.error);
-       
-     }
-     
-   })
+     }     
+   });
   }
-
 }

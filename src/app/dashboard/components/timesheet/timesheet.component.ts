@@ -30,9 +30,9 @@ export class TimesheetComponent implements OnInit {
     this.requestProcessing = true;
     this.timeSheetService.totalTimeSheetList(formData).subscribe((data)=>{
       this.requestProcessing = false
-   this.totalTimeSheetData = data;
-   this.totalTimeSheetDataLength = data.length;
-  })
+      this.totalTimeSheetData = data;
+      this.totalTimeSheetDataLength = data.length;
+    });
   }
 
   getFormattedTime(datetime:any) {

@@ -84,11 +84,6 @@ get f() { return this.addEmpForm.controls; }
     formData.append('mon_target', monTarget );
     formData.append('insentive', insentive );
     formData.append('bonus', bonus );
-    formData.append('module', module );
-   
-    
+    formData.append('module', module );   
   }
-
-
-
 }

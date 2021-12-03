@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminEmpTimeSheetListService } from 'src/app/admin/services/admin-emp-management/admin-emp-timesheet/admin-emp-time-sheet-list.service';
 
+
 @Component({
   selector: 'app-admin-employee-timesheet',
   templateUrl: './admin-employee-timesheet.component.html',
@@ -26,7 +27,7 @@ export class AdminEmployeeTimesheetComponent implements OnInit {
     // }
     console.log(date);
     console.log(empId);
-    
+
     this.formName = formType;
     const formData = new FormData();
     formData.append('emp_id', empId );

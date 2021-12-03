@@ -19,7 +19,7 @@
                             <div class="col-md-1"></div>
                             <div class="col-md-10">
                                 <div>
-                                    <form [formGroup]="assignProjectForm">
+                                    <form formGroup="assignProjectForm">
                                         <div class="row">
                                             <div class="col-lg-2 col-md-2"></div>
                                             <div class="col-md-3 col-sm-4 col-xs-12 form-group">
@@ -86,9 +86,9 @@
                                                 <label>Start date</label>
                                             </div>
                                             <div class="col-md-5  col-sm-8 col-xs-12 form-group">
-                                                <input type="text" placeholder="dd-mm-yy" value="" [(ngModel)]="str_date" formControlName="str_date"
+                                                <input type="text" placeholder="dd-mm-yy" value="" ngModel="str_date" formControlName="str_date"
                                                     id="datepicker" class="form-control"  bsDatepicker
-                                                    [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" autocomplete="off" required>
+                                                    bsConfig="{ dateInputFormat: 'DD/MM/YYYY' }" autocomplete="off" required>
                                                     <label *ngIf="submitted && f.str_date.errors" class="invalid-form-error">
                                                         <span *ngIf="f.str_date.errors.required">Start Time is required</span>
                                                     </label>
@@ -100,9 +100,9 @@
                                                 <label>End Date</label>
                                             </div>
                                             <div class="col-md-5  col-sm-8 col-xs-12 form-group">
-                                                <input type="text" placeholder="dd-mm-yy" value="" [(ngModel)]="end_date" formControlName="end_date"
+                                                <input type="text" placeholder="dd-mm-yy" value="" ngModel="end_date" formControlName="end_date"
                                                     id="datepicker2" class="form-control"  bsDatepicker
-                                                    [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" autocomplete="off" required>
+                                                    bsConfig="{ dateInputFormat: 'DD/MM/YYYY' }" autocomplete="off" required>
                                                     <label *ngIf="submitted && f.end_date.errors" class="invalid-form-error">
                                                         <span *ngIf="f.end_date.errors.required">End Time is required</span>
                                                     </label>
@@ -128,7 +128,7 @@
                                                 <input type="submit" value="Assign "  (click)="assignProject()" class="btn btn-submit">
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 form-group text-center">
-                                                <a [routerLink]="['/shailerscrm/admin/assign/project']"  class="btn btn-submit">Close</a>
+                                                <a routerLink="['/admin/assign/project']"  class="btn btn-submit">Close</a>
                                             </div>
                                         </div>
                                     </form>

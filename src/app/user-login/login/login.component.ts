@@ -59,21 +59,20 @@ export class LoginComponent implements OnInit {
         this.adminLoginService.setAuth(response);
         if (response.user_type == "admin") {
           setTimeout(() => {
-            this.route.navigate(['/shailerscrm/admin/dashboard']);
+            this.route.navigate(['/admin/dashboard']);
           }, 1000)
           this.msg = response.msg;
         } else {
           this.error = response.msg;
         }
       })
-    }
-    else if (userId == null) {
+    } else if (userId == null) {
       this.loginServices.loginUser(formData).subscribe(
         (response: any) => {
           this.loginServices.setAuth(response);
           if (response.status == "200") {
             setTimeout(() => {
-              this.route.navigate(['/shailerscrm/index/emp-dashboard']);
+              this.route.navigate(['/emp-dashboard']);
             }, 1000)
             this.msg = response.msg;
           } else {
@@ -102,7 +101,7 @@ export class LoginComponent implements OnInit {
     this.loginServices.forgetPassword(formData).subscribe((response: any) => {
       if (response.status == "200") {
         setTimeout(() => {
-          this.route.navigate(['/shailerscrm/otp-verify'], { queryParams: { emp_email: email } });
+          this.route.navigate(['/otp-verify'], { queryParams: { emp_email: email } });
         }, 1000)
         this.msg = response.msg;
       } else {

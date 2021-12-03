@@ -77,7 +77,4 @@ export class ManageLeadeComponent implements OnInit {
     this.submitted = false;
     this.mangeLeadForm.reset();
   }
-
- 
-
 }

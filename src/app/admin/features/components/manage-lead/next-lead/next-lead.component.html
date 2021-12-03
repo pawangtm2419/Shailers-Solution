@@ -11,7 +11,7 @@
                             <div class="col-md-1"></div>
                             <div class="col-md-10">
                                 <div>
-                                    <form [formGroup]="nextLeadForm">
+                                    <form formGroup="nextLeadForm">
                                         <div class="row">
                                             <div class="col-lg-2 col-md-2"></div>
                                             <div class="col-md-3 col-sm-12 col-xs-12 form-group">
@@ -93,7 +93,7 @@
                                                 </div>
                                                 <div class="col-md-5  col-sm-12 col-xs-12 form-group">
                                                     <input type="text" formControlName="remind_date" bsDatepicker
-                                                        [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }"
+                                                        bsConfig="{ dateInputFormat: 'DD/MM/YYYY' }"
                                                         class="form-control" id="datepicker" placeholder="dd-mm-yy"
                                                         autocomplete="off">
                                                         <label *ngIf="submitted && f.remind_date.errors" class="invalid-form-error">
@@ -121,7 +121,7 @@
                                                         class="btn btn-submit">
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
-                                                    <a [routerLink]="['/shailerscrm/admin/manage/lead']"   class="btn btn-submit">Close</a>
+                                                    <a routerLink="['/admin/manage/lead']"   class="btn btn-submit">Close</a>
                                                 </div>
                                             </div>
                                         </div>

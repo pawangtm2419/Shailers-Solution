@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   appRoot:  "https://www.shailersolutions.com/shailerscrm/apis/"
+  //appRoot:  "http://localhost/shailers/"
 };
 
 /*

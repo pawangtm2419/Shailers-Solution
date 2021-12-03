@@ -84,7 +84,7 @@
                                         <div  class="dataTables_filter">
                                             <label>
                                                 Search:
-                                                <input type="search" class="input-search-box" [(ngModel)]="filterTerm" >
+                                                <input type="search" class="input-search-box" ngModel="filterTerm" >
                                                
                                             </label>
                                         </div>
@@ -115,7 +115,8 @@
                                                 <ng-container *ngIf="requestProcessing">
                                                     <div class="loader"></div>
                                                 </ng-container>
-                                                <ng-container *ngFor="let item of adminEmpList | paginate: { itemsPerPage: 10, currentPage: p } | filter:filterTerm; let i=index">
+                                                <!-- <ng-container *ngFor="let item of adminEmpList | paginate: { itemsPerPage: 10, currentPage: p } | filter:filterTerm; let i=index"> -->
+                                                    <ng-container *ngFor="let item of adminEmpList; let i=index">
                                                     <tr>
                                                         <td>{{i + 1}}</td>
                                                         <td>{{item.emp_name}}</td>
@@ -138,9 +139,8 @@
                                             <div class="dataTables_info" style="float:left;" id="myTable_info" role="status" aria-live="polite">
                                                 Showing 1 to 1 of {{adminEmpListLength}} entries
                                             </div>
-                                            <div class="dataTables_paginate paging_simple_numbers"
-                                                style="float:right; margin-inline-start: 445px;" id="myTable_paginate">
-                                                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                                            <div class="dataTables_paginate paging_simple_numbers" style="float:right; margin-inline-start: 445px;" id="myTable_paginate">
+                                                <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
                                             </div>
                                         </div>
 

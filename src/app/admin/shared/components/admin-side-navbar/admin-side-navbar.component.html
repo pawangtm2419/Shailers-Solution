@@ -21,7 +21,7 @@
                             <i class="icon-submenu lnr lnr-chevron-down"></i>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#" [routerLink]="['/shailerscrm/admin/update/profile']"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
+                            <li><a href="#" [routerLink]="['/admin/update/profile']"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
                             <li><a  [routerLink]="['/shailerscrm/change-password']"> <i class="lnr lnr-cog"></i> <span>Change Password</span></a></li>
                             <li><a href="#" (click)="logOut()"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
 
@@ -40,7 +40,7 @@
             <nav>
                 <ul class="nav" >
                     <li>
-                        <a href="#" [routerLink]="['/shailerscrm/admin/dashboard']">
+                        <a href="#" [routerLink]="['/admin/dashboard']">
                             <i class="lnr lnr-home"></i> <span>Dashboard</span>
                         </a>
                     </li>
@@ -50,11 +50,11 @@
                         <div id="subPages1" class="collapse ">
                             <ul class="nav">
                                 <li>
-                                    <a href="#" [routerLink]="['/shailerscrm/admin/attendence/list']">Attendence List</a>
-                                    <a href="#"  [routerLink]="['/shailerscrm/admin/timesheet/records']">Timesheet Records</a>
-                                    <a href="#"  [routerLink]="['/shailerscrm/admin/timesheet']">Empolyees Timesheet</a>
-                                    <a href="#" [routerLink]="['/shailerscrm/admin/employee/records']">Manage Empolyees</a>
-                                    <a href="#" [routerLink]="['/shailerscrm/admin/employee/access']">Give Access</a>
+                                    <a href="#" [routerLink]="['/admin/attendence/list']">Attendence List</a>
+                                    <a href="#"  [routerLink]="['/admin/timesheet/records']">Timesheet Records</a>
+                                    <a href="#"  [routerLink]="['/admin/timesheet']">Empolyees Timesheet</a>
+                                    <a href="#" [routerLink]="['/admin/employee/records']">Manage Empolyees</a>
+                                    <a href="#" [routerLink]="['/admin/employee/access']">Give Access</a>
 
                                 </li>
                             </ul>
@@ -66,8 +66,8 @@
                         <div id="subPages2" class="collapse ">
                             <ul class="nav">
                                 <li>
-                                    <a href="#" [routerLink]="['/shailerscrm/admin/manage/project']">Manage Project</a>
-                                    <a href="#"  [routerLink]="['/shailerscrm/admin/assign/project']">Assign Project</a>
+                                    <a href="#" [routerLink]="['/admin/manage/project']">Manage Project</a>
+                                    <a href="#"  [routerLink]="['/admin/assign/project']">Assign Project</a>
                                     
                                 </li>
                             </ul>
@@ -80,8 +80,8 @@
                         <div id="subPages3" class="collapse ">
                             <ul class="nav">
                                 <li>
-                                    <a href="#" [routerLink]="['/shailerscrm/admin/manage/activity']">Manage Activity</a>
-                                    <a href="#" [routerLink]="['/shailerscrm/admin/assign/activity']">Assign Activity</a>
+                                    <a href="#" [routerLink]="['/admin/manage/activity']">Manage Activity</a>
+                                    <a href="#" [routerLink]="['/admin/assign/activity']">Assign Activity</a>
 
                                 </li>
                             </ul>
@@ -94,8 +94,8 @@
                         <div id="subPages4" class="collapse ">
                             <ul class="nav">
                                 <li>
-                                    <a href="#" [routerLink]="['/shailerscrm/admin/new/invoice']" >New Invoice</a>
-                                    <a href="#" [routerLink]="['/shailerscrm/admin/old/invoice']">Old Invoice</a>
+                                    <a href="#" [routerLink]="['/admin/new/invoice']" >New Invoice</a>
+                                    <a href="#" [routerLink]="['/admin/old/invoice']">Old Invoice</a>
 
                                 </li>
                             </ul>
@@ -108,8 +108,8 @@
                         <div id="subPages5" class="collapse ">
                             <ul class="nav">
                                 <li>
-                                    <a href="#" [routerLink]="['/shailerscrm/admin/manage/expense']">Manage Expense</a>
-                                    <a href="#"[routerLink]="['/shailerscrm/admin/entry/expense']">Expense Entry</a>
+                                    <a href="#" [routerLink]="['/admin/manage/expense']">Manage Expense</a>
+                                    <a href="#"[routerLink]="['/admin/entry/expense']">Expense Entry</a>
 
                                 </li>
                             </ul>
@@ -122,7 +122,7 @@
                         <div id="subPages6" class="collapse ">
                             <ul class="nav">
                                 <li>
-                                    <a href="#" [routerLink]="['/shailerscrm/admin/manage/client']">Manage Client</a>
+                                    <a href="#" [routerLink]="['/admin/manage/client']">Manage Client</a>
                                  
                                 </li>
                             </ul>
@@ -135,8 +135,8 @@
                         <div id="subPages7" class="collapse ">
                             <ul class="nav">
                                 <li>
-                                    <a href="#" [routerLink]="['/shailerscrm/admin/lead/category']">Lead category</a>
-                                    <a href="#" [routerLink]="['/shailerscrm/admin/manage/lead']">Manage Lead</a>
+                                    <a href="#" [routerLink]="['/admin/lead/category']">Lead category</a>
+                                    <a href="#" [routerLink]="['/admin/manage/lead']">Manage Lead</a>
                                  
                                 </li>
                             </ul>
@@ -149,7 +149,7 @@
                         <div id="subPages8" class="collapse ">
                             <ul class="nav">
                                 <li>
-                                    <a href="#" [routerLink]="['/shailerscrm/admin/leave/reruest']">Leave Request</a>
+                                    <a href="#" [routerLink]="['/admin/leave/reruest']">Leave Request</a>
                                 
                                 </li>
                             </ul>
@@ -162,7 +162,7 @@
                         <div id="subPages9" class="collapse ">
                             <ul class="nav">
                                 <li>
-                                    <a href="#" [routerLink]="['/shailerscrm/admin/domain/data']">Domain Data</a>
+                                    <a href="#" [routerLink]="['/admin/domain/data']">Domain Data</a>
                                 
                                 </li>
                             </ul>
@@ -175,10 +175,10 @@
                         <div id="subPages10" class="collapse ">
                             <ul class="nav">
                                 <li>
-                                    <a href="#" [routerLink]="['/shailerscrm/admin/shift/type/list']">Shift Type List</a>
-                                    <a href="#" [routerLink]="['/shailerscrm/admin/shift/list']">Shift  List</a>
-                                    <a href="#" [routerLink]="['/shailerscrm/admin/office/list']">Office List</a>
-                                    <a href="#" [routerLink]="['/shailerscrm/admin/department/list']">Department List</a>
+                                    <a href="#" [routerLink]="['/admin/shift/type/list']">Shift Type List</a>
+                                    <a href="#" [routerLink]="['/admin/shift/list']">Shift  List</a>
+                                    <a href="#" [routerLink]="['/admin/office/list']">Office List</a>
+                                    <a href="#" [routerLink]="['/admin/department/list']">Department List</a>
                                 
                                 </li>
                             </ul>

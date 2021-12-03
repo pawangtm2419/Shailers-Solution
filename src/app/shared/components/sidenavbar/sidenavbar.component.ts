@@ -54,9 +54,9 @@ export class SidenavbarComponent implements OnInit {
   }
 
   logOut() {
-    if (window.localStorage) {
-      window.localStorage.removeItem('user_type');
+    if(window.localStorage) {
+      window.localStorage.removeItem('emp_id');
       window.localStorage.clear();
-       }
+    }
   }
 }

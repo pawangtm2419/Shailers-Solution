@@ -19,7 +19,7 @@
                             <div class="col-md-1"></div>
                             <div class="col-md-10">
                                 <div>
-                                    <form [formGroup]="addProjectForm">
+                                    <form formGroup="addProjectForm">
                                         <div class="row">
                                             <div class="col-lg-1 col-md-1"></div>
                                             <div class="col-md-3 col-sm-12 col-xs-12 form-group">
@@ -133,7 +133,7 @@
                                             <div class="col-md-6  col-sm-12 col-xs-12 form-group">
                                                 <input type="text" class="form-control" formControlName="pro_strt_date"
                                                     placeholder="dd-mm-yy" bsDatepicker
-                                                    [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" required
+                                                    bsConfig="{ dateInputFormat: 'DD/MM/YYYY' }" required
                                                     autocomplete="off">
                                                     <label *ngIf="submitted && f.pro_strt_date.errors" class="invalid-form-error">
                                                         <span *ngIf="f.pro_strt_date.errors.required">Start date is required</span>
@@ -149,7 +149,7 @@
                                             <div class="col-md-6  col-sm-12 col-xs-12 form-group">
                                                 <input type="text" class="form-control" formControlName="pro_end_date"
                                                     placeholder="dd-mm-yy" bsDatepicker
-                                                    [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" id="datepicker3"
+                                                    bsConfig="{ dateInputFormat: 'DD/MM/YYYY' }" id="datepicker3"
                                                     required autocomplete="off">
                                                     <label *ngIf="submitted && f.pro_end_date.errors" class="invalid-form-error">
                                                         <span *ngIf="f.pro_end_date.errors.required">End date is required</span>
@@ -191,7 +191,7 @@
                                                 <div id="gsttt" #gstBox class="gst-box-close">
                                                     <div class="col-md-2  col-sm-4 col-xs-4 form-group">
                                                         <input type="text" (change)="gstCalculation()"
-                                                            [(ngModel)]="inputMoneyData" formControlName="gst" id="gst_val"
+                                                            ngModel="inputMoneyData" formControlName="gst" id="gst_val"
                                                             value="" class="form-control">
                                                             <!-- <label *ngIf="submitted && f.gst.errors" class="invalid-form-error">
                                                                 <span *ngIf="f.gst.errors.required">Username is required</span>
@@ -242,7 +242,7 @@
                                                         </div>
                                                         <div class="col-md-2  col-sm-4 col-xs-4 form-group">
                                                             <input type="text" placeholder="mm/dd/yy" bsDatepicker
-                                                                [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }"
+                                                                bsConfig="{ dateInputFormat: 'DD/MM/YYYY' }"
                                                                 name="advance_date" id="datepicker" autocomplete="off"
                                                                 class="form-control">
                                                                 <!-- <label *ngIf="submitted && f.advance_date.errors" class="invalid-form-error">
@@ -260,7 +260,7 @@
                                                     class="btn btn-submit">
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
-                                                <a [routerLink]="['/shailerscrm/admin/manage/project']"
+                                                <a routerLink="['/admin/manage/project']"
                                                     class="btn btn-submit">Close</a>
                                             </div>
                                         </div>
